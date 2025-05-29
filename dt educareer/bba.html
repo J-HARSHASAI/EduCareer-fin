@@ -1,0 +1,931 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BBA Programs - Student Education Career Portal</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Existing styles (unchanged, included for context) */
+        .course-header {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1507679799987-c73779587ccf?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+        }
+
+        .specializations {
+            padding: 80px 0;
+            background-color: #f8f9fa;
+        }
+
+        .specialization-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .specialization-item {
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .specialization-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .specialization-item h3 {
+            color: #4a6bdf;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Career Prospects styles (adapted from BTech code) */
+        .career-prospects {
+            padding: 80px 0;
+            background-color: #fff;
+        }
+
+        .job-roles-list {
+            margin-top: 40px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .job-role-item {
+            margin-bottom: 15px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .job-role-title {
+            padding: 15px;
+            background-color: #fff;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .job-role-title i {
+            transition: transform 0.3s ease;
+        }
+
+        .job-role-details {
+            padding: 0 15px;
+            max-height: 0;
+            overflow: hidden;
+            background-color: #f8f9fa;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+
+        .job-role-item.active .job-role-title i {
+            transform: rotate(180deg);
+        }
+
+        .job-role-item.active .job-role-details {
+            padding: 15px;
+            max-height: 1200px;
+        }
+
+        .job-role-details h3 {
+            color: #4a6bdf;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        .job-role-details .job-description {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .job-role-details .subjects-list,
+        .job-role-details .skills-list,
+        .job-role-details .companies-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .job-role-details .subjects-list span,
+        .job-role-details .skills-list span,
+        .job-role-details .companies-list span {
+            background-color: #4a6bdf;
+            color: #fff;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+
+        .job-role-details .career-path {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .job-role-details .career-path span {
+            background-color: #fff;
+            border: 1px solid #4a6bdf;
+            padding: 8px 15px;
+            border-radius: 5px;
+            font-size: 0.9rem;
+        }
+
+        .job-role-details .career-path i {
+            color: #4a6bdf;
+        }
+
+        .job-role-details .salary-range,
+        .job-role-details .industry-demand,
+        .job-role-details .work-environment {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        /* Remaining styles (unchanged, included for context) */
+        .curriculum {
+            padding: 80px 0;
+            background-color: #f8f9fa;
+        }
+
+        .semester-list {
+            margin-top: 40px;
+        }
+
+        .semester {
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+
+        .semester h3 {
+            color: #4a6bdf;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .course-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .course-item {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .course-item:hover {
+            background-color: #f0f4ff;
+        }
+
+        .admission {
+            padding: 80px 0;
+        }
+
+        .admission-process {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .step {
+            flex: 1;
+            min-width: 250px;
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        .step-number {
+            position: absolute;
+            top: -20px;
+            left: 25px;
+            width: 40px;
+            height: 40px;
+            background-color: #4a6bdf;
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 1.2rem;
+        }
+
+        .faq {
+            padding: 80px 0;
+            background-color: #f8f9fa;
+        }
+
+        .faq-list {
+            margin-top: 40px;
+        }
+
+        .faq-item {
+            background-color: #fff;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 20px 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        .faq-question i {
+            transition: transform 0.3s ease;
+        }
+
+        .faq-answer {
+            padding: 0;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+
+        .faq-item.active .faq-answer {
+            padding: 20px;
+            max-height: 1000px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .section-description {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 40px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>EduCareer</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#courses">Courses</a></li>
+                    <li><a href="index.html#about">About Us</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="course-header">
+        <div class="container">
+            <h1>Bachelor of Business Administration (BBA)</h1>
+            <p>A comprehensive undergraduate program for aspiring business professionals</p>
+        </div>
+    </section>
+
+    <section class="specializations">
+        <div class="container">
+            <h2 class="section-title">Popular Specializations</h2>
+            <p class="section-description">BBA offers various specializations to match your career goals and interests. Here are some of the most sought-after options:</p>
+            <div class="specialization-list">
+                <div class="specialization-item">
+                    <h3><i class="fas fa-chart-line"></i> Finance</h3>
+                    <p>Focus on financial management, investment analysis, banking, and corporate finance. Learn to analyze financial statements, manage investments, and make strategic financial decisions.</p>
+                </div>
+                <div class="specialization-item">
+                    <h3><i class="fas fa-bullhorn"></i> Marketing</h3>
+                    <p>Study consumer behavior, market research, digital marketing, and brand management. Develop skills to create effective marketing strategies and campaigns.</p>
+                </div>
+                <div class="specialization-item">
+                    <h3><i class="fas fa-users"></i> Human Resource Management</h3>
+                    <p>Learn about talent acquisition, employee development, payroll management, and organizational behavior.</p>
+                </div>
+                <div class="specialization-item">
+                    <h3><i class="fas fa-globe"></i> International Business</h3>
+                    <p>Study global markets, cross-border management, international trade, and global business strategies.</p>
+                </div>
+                <div class="specialization-item">
+                    <h3><i class="fas fa-tasks"></i> Operations Management</h3>
+                    <p>Focus on supply chain management, quality control, logistics, and process optimization. Learn to improve efficiency and productivity in business operations.</p>
+                </div>
+                <div class="specialization-item">
+                    <h3><i class="fas fa-laptop"></i> Information Systems</h3>
+                    <p>Study business analytics, database management, IT infrastructure, and digital transformation.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="career-prospects">
+        <div class="container">
+            <h2 class="section-title">Career Prospects</h2>
+            <p class="section-description">A BBA degree opens doors to various career opportunities across industries. Explore the detailed career paths below:</p>
+            <div class="job-roles-list">
+                <div class="job-role-item">
+                    <div class="job-role-title">
+                        Business Analyst
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="job-role-details">
+                        <h3>Job Description</h3>
+                        <div class="job-description">
+                            Business Analysts analyze business processes and systems to identify inefficiencies and recommend improvements. They gather requirements, create reports, and collaborate with stakeholders to drive business solutions.
+                        </div>
+                        <h3>Relevant Subjects</h3>
+                        <div class="subjects-list">
+                            <span>Business Analytics</span>
+                            <span>Business Statistics</span>
+                            <span>Principles of Management</span>
+                        </div>
+                        <h3>Required Skills</h3>
+                        <div class="skills-list">
+                            <span>Data Analysis</span>
+                            <span>Problem Solving</span>
+                            <span>Communication</span>
+                            <span>Requirements Gathering</span>
+                        </div>
+                        <h3>Career Path</h3>
+                        <div class="career-path">
+                            <span>Junior Analyst</span>
+                            <i class="fas fa-arrow-right"></i>
+                            <span>Business Analyst</span>
+                            <i class="fas fa-arrow-right"></i>
+                            <span>Senior Analyst</span>
+                            <i class="fas fa-arrow-right"></i>
+                            <span>Business Consultant</span>
+                        </div>
+                        <h3>Salary Range</h3>
+                        <div class="salary-range">$65,000 - $85,000/year</div>
+                        <h3>Industry Demand</h3>
+                        <div class="industry-demand">
+                            High demand in consulting, IT, and finance due to the need for process optimization and data-driven decisions.
+                        </div>
+                        <h3>Companies Providing These Jobs</h3>
+                        <div class="companies-list">
+                            <span>Accenture</span>
+                            <span>Deloitte</span>
+                            <span>IBM</span>
+                        </div>
+                        <h3>Work Environment</h3>
+                        <div class="work-environment">
+                            Office-based with collaboration across departments and occasional client interactions.
+                        </div>
+                    </div>
+                </div>
+                <div class="job-role-item">
+                    <div class="job-role-title">
+                        Marketing Manager
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="job-role-details">
+                        <h3>Job Description</h3>
+                        <div class="job-description">
+                            Marketing Managers develop and implement strategies to promote products/services. They conduct market research, manage campaigns, and work with creative teams to enhance brand visibility.
+                        </div>
+                        <h3>Relevant Subjects</h3>
+                        <div class="subjects-list">
+                            <span>Marketing Management</span>
+                            <span>Consumer Behavior</span>
+                            <span>Business Communication</span>
+                        </div>
+                        <h3>Required Skills</h3>
+                        <div class="skills-list">
+                            <span>Digital Marketing</span>
+                            <span>Market Research</span>
+                            <span>Creativity</span>
+                            <span>Brand Management</span>
+                        </div>
+                        <h3>Career Path</h3>
+                        <div class="career-path">
+                            <span>Marketing Coordinator</span>
+                            <i class="fas fa-arrow-right"></i>
+                            <span>Marketing Manager</span>
+                            <i class="fas fa-arrow-right"></i>
+                            <span>Senior Marketing Manager</span>
+                            <i class="fas fa-arrow-right"></i>
+                            <span>Chief Marketing Officer</span>
+                        </div>
+                        <h3>Salary Range</h3>
+                        <div class="salary-range">$70,000 - $100,000/year</div>
+                        <h3>Industry Demand</h3>
+                        <div class="industry-demand">
+                            Strong demand in FMCG, retail, and tech industries due to the importance of brand promotion.
+                        </div>
+                        <h3>Companies Providing These Jobs</h3>
+                        <div class="companies-list">
+                            <span>Unilever</span>
+                            <span>PepsiCo</span>
+                            <span>Amazon</span>
+                        </div>
+                        <h3>Work Environment</h3>
+                        <div class="work-environment">
+                            Office-based with occasional travel for campaigns or market research.
+                        </div>
+                    </div>
+                </div>
+                <div class="job-role-item">
+                    <div class="job-role-title">
+                        Financial Analyst
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="job-role-details">
+                        <h3>Job Description</h3>
+                        <div class="job-description">
+                            Financial Analysts evaluate financial data and market trends to support investment decisions and financial planning. They prepare reports and forecast financial performance.
+                        </div>
+                        <h3>Relevant Subjects</h3>
+                        <div class="subjects-list">
+                            <span>Financial Accounting</span>
+                            <span>Financial Management</span>
+                            <span>Business Mathematics</span>
+                        </div>
+                        <h3>Required Skills</h3>
+                        <div class="skills-list">
+                            <span>Financial Analysis</span>
+                            <span>Excel Proficiency</span>
+                            <span>Analytical Thinking</span>
+                            <span>Attention to Detail</span>
+                        </div>
+                        <h3>Career Path</h3>
+                        <div class="career-path">
+                            <span>Junior Financial Analyst</span>
+                            <i class="fas fa-arrow-right"></i>
+                            <span>Financial Analyst</span>
+                            <i class="fas fa-arrow-right"></i>
+                            <span>Senior Analyst</span>
+                            <i class="fas fa-arrow-right"></i>
+                            <span>Finance Manager</span>
+                        </div>
+                        <h3>Salary Range</h3>
+                        <div class="salary-range">$60,000 - $90,000/year</div>
+                        <h3>Industry Demand</h3>
+                        <div class="industry-demand">
+                            Growing demand in banking, investment firms, and corporate finance due to data-driven strategies.
+                        </div>
+                        <h3>Companies Providing These Jobs</h3>
+                        <div class="companies-list">
+                            <span>JPMorgan Chase</span>
+                            <span>Goldman Sachs</span>
+                            <span>PwC</span>
+                        </div>
+                        <h3>Work Environment</h3>
+                        <div class="work-environment">
+                            Office-based with a focus on data analysis and reporting.
+                        </div>
+                    </div>
+                </div>
+                <div class="job-role-item">
+                    <div class="job-role-title">
+                        HR Specialist
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="job-role-details">
+                        <h3>Job Description</h3>
+                        <div class="job-description">
+                            HR Specialists manage recruitment, employee relations, and training programs. They ensure compliance with HR policies and support organizational development initiatives.
+                        </div>
+                        <h3>Relevant Subjects</h3>
+                        <div class="subjects-list">
+                            <span>Human Resource Management</span>
+                            <span>Organizational Behavior</span>
+                            <span>Business Communication</span>
+                        </div>
+                        <h3>Required Skills</h3>
+                        <div class="skills-list">
+                            <span>Recruitment</span>
+                            <span>Employee Engagement</span>
+                            <span>Communication</span>
+                            <span>Conflict Resolution</span>
+                        </div>
+                        <h3>Career Path</h3>
+                        <div class="career-path">
+                            <span>HR Assistant</span>
+                            <i class="fas fa-arrow-right"></i>
+                            <span>HR Specialist</span>
+                            <i class="fas fa-arrow-right"></i>
+                            <span>HR Manager</span>
+                            <i class="fas fa-arrow-right"></i>
+                            <span>HR Director</span>
+                        </div>
+                        <h3>Salary Range</h3>
+                        <div class="salary-range">$55,000 - $80,000/year</div>
+                        <h3>Industry Demand</h3>
+                        <div class="industry-demand">
+                            Steady demand across industries due to the need for effective human resource management.
+                        </div>
+                        <h3>Companies Providing These Jobs</h3>
+                        <div class="companies-list">
+                            <span>Microsoft</span>
+                            <span>Accenture</span>
+                            <span>Walmart</span>
+                        </div>
+                        <h3>Work Environment</h3>
+                        <div class="work-environment">
+                            Office-based with frequent employee interactions and HR policy implementation.
+                        </div>
+                    </div>
+                </div>
+                <div class="job-role-item">
+                    <div class="job-role-title">
+                        Operations Manager
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="job-role-details">
+                        <h3>Job Description</h3>
+                        <div class="job-description">
+                            Operations Managers oversee production, supply chain, and quality control to ensure operational efficiency. They coordinate teams and optimize processes to meet business goals.
+                        </div>
+                        <h3>Relevant Subjects</h3>
+                        <div class="subjects-list">
+                            <span>Operations Management</span>
+                            <span>Supply Chain Management</span>
+                            <span>Business Statistics</span>
+                        </div>
+                        <h3>Required Skills</h3>
+                        <div class="skills-list">
+                            <span>Process Optimization</span>
+                            <span>Team Coordination</span>
+                            <span>Problem Solving</span>
+                            <span>Time Management</span>
+                        </div>
+                        <h3>Career Path</h3>
+                        <div class="career-path">
+                            <span>Operations Coordinator</span>
+                            <i class="fas fa-arrow-right"></i>
+                            <span>Operations Manager</span>
+                            <i class="fas fa-arrow-right"></i>
+                            <span>Senior Operations Manager</span>
+                            <i class="fas fa-arrow-right"></i>
+                            <span>Chief Operations Officer</span>
+                        </div>
+                        <h3>Salary Range</h3>
+                        <div class="salary-range">$65,000 - $95,000/year</div>
+                        <h3>Industry Demand</h3>
+                        <div class="industry-demand">
+                            High demand in manufacturing, logistics, and retail due to the need for efficient operations.
+                        </div>
+                        <h3>Companies Providing These Jobs</h3>
+                        <div class="companies-list">
+                            <span>Amazon</span>
+                            <span>FedEx</span>
+                            <span>Walmart</span>
+                        </div>
+                        <h3>Work Environment</h3>
+                        <div class="work-environment">
+                            Office-based with occasional visits to production or warehouse sites.
+                        </div>
+                    </div>
+                </div>
+                <div class="job-role-item">
+                    <div class="job-role-title">
+                        Entrepreneur
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="job-role-details">
+                        <h3>Job Description</h3>
+                        <div class="job-description">
+                            Entrepreneurs start and manage their own businesses, identifying market opportunities and developing innovative solutions. They create business plans and secure funding to grow ventures.
+                        </div>
+                        <h3>Relevant Subjects</h3>
+                        <div class="subjects-list">
+                            <span>Entrepreneurship</span>
+                            <span>Marketing Management</span>
+                            <span>Financial Management</span>
+                        </div>
+                        <h3>Required Skills</h3>
+                        <div class="skills-list">
+                            <span>Business Planning</span>
+                            <span>Innovation</span>
+                            <span>Networking</span>
+                            <span>Risk Management</span>
+                        </div>
+                        <h3>Career Path</h3>
+                        <div class="career-path">
+                            <span>Startup Founder</span>
+                            <i class="fas fa-arrow-right"></i>
+                            <span>Entrepreneur</span>
+                            <i class="fas fa-arrow-right"></i>
+                            <span>Serial Entrepreneur</span>
+                        </div>
+                        <h3>Salary Range</h3>
+                        <div class="salary-range">Variable ($0 - $100,000+/year)</div>
+                        <h3>Industry Demand</h3>
+                        <div class="industry-demand">
+                            Growing demand in tech and startup ecosystems due to innovation and market opportunities.
+                        </div>
+                        <h3>Companies Providing These Jobs</h3>
+                        <div class="companies-list">
+                            <span>Self-employed</span>
+                            <span>Startup Incubators</span>
+                            <span>Venture Capital Firms</span>
+                        </div>
+                        <h3>Work Environment</h3>
+                        <div class="work-environment">
+                            Flexible, with frequent networking, investor meetings, and hands-on business management.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="curriculum">
+        <div class="container">
+            <h2 class="section-title">Curriculum Overview</h2>
+            <p class="section-description">The BBA program typically spans over 3-4 years, divided into semesters. Here's a glimpse of the curriculum structure:</p>
+            <div class="semester-list">
+                <div class="semester">
+                    <h3>First Year</h3>
+                    <div class="course-list">
+                        <div class="course-item">
+                            <p>Principles of Management</p>
+                        </div>
+                        <div class="course-item">
+                            <p>Business Mathematics</p>
+                        </div>
+                        <div class="course-item">
+                            <p>Financial Accounting</p>
+                        </div>
+                        <div class="course-item">
+                            <p>Business Communication</p>
+                        </div>
+                        <div class="course-item">
+                            <p>Microeconomics</p>
+                        </div>
+                        <div class="course-item">
+                            <p>Computer Applications</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="semester">
+                    <h3>Second Year</h3>
+                    <div class="course-list">
+                        <div class="course-item">
+                            <p>Organizational Behavior</p>
+                        </div>
+                        <div class="course-item">
+                            <p>Marketing Management</p>
+                        </div>
+                        <div class="course-item">
+                            <p>Business Statistics</p>
+                        </div>
+                        <div class="course-item">
+                            <p>Human Resource Management</p>
+                        </div>
+                        <div class="course-item">
+                            <p>Macroeconomics</p>
+                        </div>
+                        <div class="course-item">
+                            <p>Business Law</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="semester">
+                    <h3>Third Year</h3>
+                    <div class="course-list">
+                        <div class="course-item">
+                            <p>Financial Management</p>
+                        </div>
+                        <div class="course-item">
+                            <p>Operations Management</p>
+                        </div>
+                        <div class="course-item">
+                            <p>Business Ethics</p>
+                        </div>
+                        <div class="course-item">
+                            <p>Strategic Management</p>
+                        </div>
+                        <div class="course-item">
+                            <p>Entrepreneurship</p>
+                        </div>
+                        <div class="course-item">
+                            <p>Specialization Courses</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="semester">
+                    <h3>Fourth Year</h3>
+                    <div class="course-list">
+                        <div class="course-item">
+                            <p>Advanced Specialization Courses</p>
+                        </div>
+                        <div class="course-item">
+                            <p>Project Management</p>
+                        </div>
+                        <div class="course-item">
+                            <p>International Business</p>
+                        </div>
+                        <div class="course-item">
+                            <p>Business Research Methods</p>
+                        </div>
+                        <div class="course-item">
+                            <p>Capstone Project</p>
+                        </div>
+                        <div class="course-item">
+                            <p>Internship</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="admission">
+        <div class="container">
+            <h2 class="section-title">Admission Process</h2>
+            <p class="section-description">The admission process for BBA programs typically involves the following steps:</p>
+            <div class="admission-process">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Eligibility Check</h3>
+                    <p>Ensure you meet the minimum eligibility criteria, typically 10+2 with a minimum percentage (varies by institution).</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Entrance Exam</h3>
+                    <p>Prepare for and take relevant entrance exams like CAT, XAT, MAT, or institution-specific tests.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Group Discussion</h3>
+                    <p>Participate in group discussions to demonstrate your communication and analytical skills.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3>Personal Interview</h3>
+                    <p>Attend personal interviews to showcase your personality, goals, and suitability for the program.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">5</div>
+                    <h3>Final Selection</h3>
+                    <p>Final selection based on entrance exam scores, academic performance, GD, and PI performance.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="faq">
+        <div class="container">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            <p class="section-description">Find answers to common questions about the BBA program:</p>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <p>What is the duration of a BBA program?</p>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>A typical BBA program is 3-4 years long, depending on the country and institution. In most countries, it's a 3-year program, while in some countries like the US, it's a 4-year program.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <p>What are the career prospects after BBA?</p>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>BBA graduates can pursue careers in various fields such as marketing, finance, human resources, operations, and entrepreneurship. They can work in corporations, startups, consulting firms, or even start their own businesses.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <p>Can I pursue an MBA after BBA?</p>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, many BBA graduates go on to pursue an MBA to further enhance their knowledge and skills. Having a BBA background can be advantageous for MBA studies as you already have a foundation in business concepts.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <p>What skills will I develop during a BBA program?</p>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>A BBA program helps develop various skills including critical thinking, problem-solving, communication, leadership, teamwork, analytical skills, and business acumen. These skills are highly valued in the corporate world.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <p>Is work experience required for admission to a BBA program?</p>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>No, work experience is typically not required for admission to a BBA program as it's an undergraduate degree. However, some institutions may value relevant extracurricular activities or internships.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>About Us</h3>
+                    <p>We are dedicated to providing comprehensive information about educational programs and career paths to help students make informed decisions.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.html#courses">Courses</a></li>
+                        <li><a href="index.html#about">About Us</a></li>
+                        <li><a href="index.html#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Us</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> 123 Education St, Knowledge City</p>
+                    <p><i class="fas fa-phone"></i> +1 234 567 890</p>
+                    <p><i class="fas fa-envelope"></i> info@educareer.com</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Follow Us</h3>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2023 EduCareer. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // FAQ accordion functionality (unchanged)
+            const faqItems = document.querySelectorAll('.faq-item');
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                question.addEventListener('click', () => {
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item && otherItem.classList.contains('active')) {
+                            otherItem.classList.remove('active');
+                        }
+                    });
+                    item.classList.toggle('active');
+                });
+            });
+
+            // Job roles accordion functionality (adapted from BTech code)
+            const jobRoleItems = document.querySelectorAll('.job-role-item');
+            jobRoleItems.forEach(item => {
+                const title = item.querySelector('.job-role-title');
+                title.addEventListener('click', () => {
+                    jobRoleItems.forEach(otherItem => {
+                        if (otherItem !== item && otherItem.classList.contains('active')) {
+                            otherItem.classList.remove('active');
+                        }
+                    });
+                    item.classList.toggle('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>

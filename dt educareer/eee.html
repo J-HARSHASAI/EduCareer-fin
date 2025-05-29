@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BTech in Electrical and Electronics Engineering - EduCareer</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        .course-header {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://bestengineeringcolleges.home.blog/wp-content/uploads/2021/02/how-electrical-engineering-can-be-the-right-choice-of-your-career.jpg');
+            background-size: cover;
+            background-position: center;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+        }
+        
+        .course-details {
+            padding: 80px 0;
+            background-color: #f8f9fa;
+        }
+        
+        .details-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .details-content h2 {
+            color: #4a6bdf;
+            margin-bottom: 20px;
+        }
+        
+        .details-content p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        
+        .details-content ul {
+            list-style-type: disc;
+            padding-left: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .details-content ul li {
+            color: #333;
+            margin-bottom: 10px;
+        }
+        
+        .job-roles-list {
+            margin-top: 20px;
+        }
+        
+        .job-role-item {
+            margin-bottom: 15px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+        }
+        
+        .job-role-title {
+            padding: 15px;
+            background-color: #fff;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            color: #333;
+        }
+        
+        .job-role-title i {
+            transition: transform 0.3s ease;
+        }
+        
+        .job-role-details {
+            padding: 0 15px;
+            max-height: 0;
+            overflow: hidden;
+            background-color: #f8f9fa;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+        
+        .job-role-item.active .job-role-title i {
+            transform: rotate(180deg);
+        }
+        
+        .job-role-item.active .job-role-details {
+            padding: 15px;
+            max-height: 1200px;
+        }
+        
+        .job-role-details h3 {
+            color: #4a6bdf;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+        
+        .job-role-details .job-description {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        
+        .job-role-details .subjects-list,
+        .job-role-details .skills-list,
+        .job-role-details .companies-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .job-role-details .subjects-list span,
+        .job-role-details .skills-list span,
+        .job-role-details .companies-list span {
+            background-color: #4a6bdf;
+            color: #fff;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+        
+        .job-role-details .career-path {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .job-role-details .career-path span {
+            background-color: #fff;
+            border: 1px solid #4a6bdf;
+            padding: 8px 15px;
+            border-radius: 5px;
+            font-size: 0.9rem;
+        }
+        
+        .job-role-details .career-path i {
+            color: #4a6bdf;
+        }
+        
+        .job-role-details .salary-range {
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        
+        .job-role-details .industry-demand,
+        .job-role-details .work-environment {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        
+        .cta {
+            padding: 80px 0;
+            background-color: #4a6bdf;
+            color: #fff;
+            text-align: center;
+        }
+        
+        .cta h2 {
+            margin-bottom: 20px;
+            font-size: 2.5rem;
+        }
+        
+        .cta p {
+            margin-bottom: 30px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            font-size: 1.1rem;
+        }
+        
+        .cta .btn {
+            background-color: #fff;
+            color: #4a6bdf;
+            font-size: 1.1rem;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        
+        .cta .btn:hover {
+            background-color: #f8f9fa;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>EduCareer</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#courses">Courses</a></li>
+                    <li><a href="index.html#about">About Us</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="course-header">
+        <div class="container">
+            <h1>BTech in Electrical and Electronics Engineering</h1>
+            <p>Power the future with cutting-edge electrical systems and innovative electronics</p>
+        </div>
+    </section>
+
+    <section class="course-details">
+        <div class="container">
+            <div class="details-content">
+                <h2>Course Description</h2>
+                <p>Electrical and Electronics Engineering (EEE) focuses on the study, design, and application of electrical systems, power generation, and electronic devices. This field equips students with the skills to innovate in areas such as power systems, control systems, telecommunications, and embedded systems, driving advancements in technology and energy solutions.</p>
+                
+                <h2>Relevant Subjects</h2>
+                <ul>
+                    <li>Power Systems</li>
+                    <li>Control Systems</li>
+                    <li>Digital Electronics</li>
+                    <li>Analog Electronics</li>
+                    <li>Signals and Systems</li>
+                    <li>Electrical Machines</li>
+                </ul>
+                
+                <h2>Required Skills</h2>
+                <ul>
+                    <li>Circuit Design (MATLAB, PSpice)</li>
+                    <li>Power System Analysis</li>
+                    <li>Microcontroller Programming</li>
+                    <li>PLC Programming</li>
+                    <li>Signal Processing</li>
+                    <li>Problem Solving</li>
+                    <li>Team Collaboration</li>
+                </ul>
+                
+                <h2>Job Roles After Completion</h2>
+                <div class="job-roles-list">
+                    <div class="job-role-item">
+                        <div class="job-role-title">
+                            Power Systems Engineer
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="job-role-details">
+                            <h3>Job Description</h3>
+                            <div class="job-description">
+                                Power Systems Engineers design, maintain, and optimize electrical power generation, transmission, and distribution systems. They use tools like MATLAB and ETAP to analyze power flow, ensure grid stability, and integrate renewable energy sources. They also ensure compliance with safety and regulatory standards while collaborating with utility companies and project teams.
+                            </div>
+                            <h3>Relevant Subjects</h3>
+                            <div class="subjects-list">
+                                <span>Power Systems</span>
+                                <span>Electrical Machines</span>
+                            </div>
+                            <h3>Required Skills</h3>
+                            <div class="skills-list">
+                                <span>Power System Analysis</span>
+                                <span>MATLAB</span>
+                                <span>ETAP</span>
+                                <span>Grid Management</span>
+                            </div>
+                            <h3>Career Path</h3>
+                            <div class="career-path">
+                                <span>Junior Power Systems Engineer</span>
+                                <i class="fas fa-arrow-right"></i>
+                                <span>Power Systems Engineer</span>
+                                <i class="fas fa-arrow-right"></i>
+                                <span>Senior Power Systems Engineer</span>
+                                <i class="fas fa-arrow-right"></i>
+                                <span>Power Systems Consultant</span>
+                            </div>
+                            <h3>Salary Range</h3>
+                            <div class="salary-range">₹6-22 LPA</div>
+                            <h3>Industry Demand</h3>
+                            <div class="industry-demand">
+                                High demand in energy, utilities, and renewable energy sectors due to increasing focus on sustainable power solutions.
+                            </div>
+                            <h3>Companies Providing These Jobs</h3>
+                            <div class="companies-list">
+                                <span>NTPC</span>
+                                <span>Tata Power</span>
+                                <span>Adani Power</span>
+                                <span>Siemens</span>
+                                <span>Schneider Electric</span>
+                            </div>
+                            <h3>Work Environment</h3>
+                            <div class="work-environment">
+                                Work in offices for system design and analysis, with site visits to power plants or substations for inspections and implementation.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="job-role-item">
+                        <div class="job-role-title">
+                            Control Systems Engineer
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="job-role-details">
+                            <h3>Job Description</h3>
+                            <div class="job-description">
+                                Control Systems Engineers design and implement systems to control machinery and processes in industries like manufacturing, aerospace, and automotive. They develop control algorithms, program PLCs, and use tools like MATLAB and Simulink to optimize system performance. They also troubleshoot and maintain control systems to ensure reliability.
+                            </div>
+                            <h3>Relevant Subjects</h3>
+                            <div class="subjects-list">
+                                <span>Control Systems</span>
+                                <span>Signals and Systems</span>
+                            </div>
+                            <h3>Required Skills</h3>
+                            <div class="skills-list">
+                                <span>PLC Programming</span>
+                                <span>MATLAB/Simulink</span>
+                                <span>Control Algorithms</span>
+                                <span>System Integration</span>
+                            </div>
+                            <h3>Career Path</h3>
+                            <div class="career-path">
+                                <span>Junior Control Systems Engineer</span>
+                                <i class="fas fa-arrow-right"></i>
+                                <span>Control Systems Engineer</span>
+                                <i class="fas fa-arrow-right"></i>
+                                <span>Senior Control Systems Engineer</span>
+                                <i class="fas fa-arrow-right"></i>
+                                <span>Automation Consultant</span>
+                            </div>
+                            <h3>Salary Range</h3>
+                            <div class="salary-range">₹6-20 LPA</div>
+                            <h3>Industry Demand</h3>
+                            <div class="industry-demand">
+                                Strong demand in automation, manufacturing, and robotics due to the need for precise control systems in modern industries.
+                            </div>
+                            <h3>Companies Providing These Jobs</h3>
+                            <div class="companies-list">
+                                <span>Siemens</span>
+                                <span>Rockwell Automation</span>
+                                <span>Honeywell</span>
+                                <span>ABB</span>
+                                <span>L&T Technology Services</span>
+                            </div>
+                            <h3>Work Environment</h3>
+                            <div class="work-environment">
+                                Mix of office-based design and programming with on-site work to install and test control systems in industrial settings.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="job-role-item">
+                        <div class="job-role-title">
+                            Electronics Design Engineer
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="job-role-details">
+                            <h3>Job Description</h3>
+                            <div class="job-description">
+                                Electronics Design Engineers develop and test electronic circuits and systems for devices like consumer electronics, medical equipment, and telecommunications systems. They use tools like PSpice and Altium Designer to design circuit boards, perform simulations, and ensure compliance with industry standards. They also collaborate with product development teams to integrate electronics into final products.
+                            </div>
+                            <h3>Relevant Subjects</h3>
+                            <div class="subjects-list">
+                                <span>Digital Electronics</span>
+                                <span>Analog Electronics</span>
+                            </div>
+                            <h3>Required Skills</h3>
+                            <div class="skills-list">
+                                <span>Circuit Design</span>
+                                <span>PCB Design</span>
+                                <span>PSpice/Altium</span>
+                                <span>Testing and Validation</span>
+                            </div>
+                            <h3>Career Path</h3>
+                            <div class="career-path">
+                                <span>Junior Electronics Engineer</span>
+                                <i class="fas fa-arrow-right"></i>
+                                <span>Electronics Design Engineer</span>
+                                <i class="fas fa-arrow-right"></i>
+                                <span>Senior Electronics Engineer</span>
+                                <i class="fas fa-arrow-right"></i>
+                                <span>Electronics Design Lead</span>
+                            </div>
+                            <h3>Salary Range</h3>
+                            <div class="salary-range">₹5-20 LPA</div>
+                            <h3>Industry Demand</h3>
+                            <div class="industry-demand">
+                                High demand in consumer electronics, telecommunications, and IoT industries due to rapid advancements in electronic devices.
+                            </div>
+                            <h3>Companies Providing These Jobs</h3>
+                            <div class="companies-list">
+                                <span>Samsung</span>
+                                <span>Texas Instruments</span>
+                                <span>Qualcomm</span>
+                                <span>Bosch</span>
+                                <span>Philips</span>
+                            </div>
+                            <h3>Work Environment</h3>
+                            <div class="work-environment">
+                                Primarily lab-based for circuit design and testing, with office work for simulations and collaboration with product teams.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="job-role-item">
+                        <div class="job-role-title">
+                            Embedded Systems Engineer
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="job-role-details">
+                            <h3>Job Description</h3>
+                            <div class="job-description">
+                                Embedded Systems Engineers design and program embedded systems for applications like IoT devices, automotive electronics, and medical equipment. They write firmware, program microcontrollers, and integrate hardware and software components to ensure system functionality. They also perform debugging and testing to meet performance requirements.
+                            </div>
+                            <h3>Relevant Subjects</h3>
+                            <div class="subjects-list">
+                                <span>Digital Electronics</span>
+                                <span>Signals and Systems</span>
+                            </div>
+                            <h3>Required Skills</h3>
+                            <div class="skills-list">
+                                <span>Microcontroller Programming</span>
+                                <span>Firmware Development</span>
+                                <span>RTOS</span>
+                                <span>Debugging</span>
+                            </div>
+                            <h3>Career Path</h3>
+                            <div class="career-path">
+                                <span>Junior Embedded Engineer</span>
+                                <i class="fas fa-arrow-right"></i>
+                                <span>Embedded Systems Engineer</span>
+                                <i class="fas fa-arrow-right"></i>
+                                <span>Senior Embedded Engineer</span>
+                                <i class="fas fa-arrow-right"></i>
+                                <span>Embedded Systems Architect</span>
+                            </div>
+                            <h3>Salary Range</h3>
+                            <div class="salary-range">₹6-25 LPA</div>
+                            <h3>Industry Demand</h3>
+                            <div class="industry-demand">
+                                Growing demand in IoT, automotive, and consumer electronics due to the proliferation of smart devices and automation.
+                            </div>
+                            <h3>Companies Providing These Jobs</h3>
+                            <div class="companies-list">
+                                <span>Intel</span>
+                                <span>NXP Semiconductors</span>
+                                <span>Tata Elxsi</span>
+                                <span>Robert Bosch</span>
+                                <span>STMicroelectronics</span>
+                            </div>
+                            <h3>Work Environment</h3>
+                            <div class="work-environment">
+                                Work in labs for hardware development and testing, with office-based programming and system integration tasks.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="job-role-item">
+                        <div class="job-role-title">
+                            Telecommunications Engineer
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="job-role-details">
+                            <h3>Job Description</h3>
+                            <div class="job-description">
+                                Telecommunications Engineers design and maintain communication systems, including wireless networks, fiber optics, and satellite systems. They analyze signal performance, optimize network coverage, and ensure reliable connectivity. They also work on emerging technologies like 5G and collaborate with service providers to implement network solutions.
+                            </div>
+                            <h3>Relevant Subjects</h3>
+                            <div class="subjects-list">
+                                <span>Signals and Systems</span>
+                                <span>Digital Electronics</span>
+                            </div>
+                            <h3>Required Skills</h3>
+                            <div class="skills-list">
+                                <span>Network Design</span>
+                                <span>Signal Processing</span>
+                                <span>Wireless Communication</span>
+                                <span>Troubleshooting</span>
+                            </div>
+                            <h3>Career Path</h3>
+                            <div class="career-path">
+                                <span>Junior Telecom Engineer</span>
+                                <i class="fas fa-arrow-right"></i>
+                                <span>Telecommunications Engineer</span>
+                                <i class="fas fa-arrow-right"></i>
+                                <span>Senior Telecom Engineer</span>
+                                <i class="fas fa-arrow-right"></i>
+                                <span>Network Architect</span>
+                            </div>
+                            <h3>Salary Range</h3>
+                            <div class="salary-range">₹5-20 LPA</div>
+                            <h3>Industry Demand</h3>
+                            <div class="industry-demand">
+                                High demand in telecommunications and IT sectors due to advancements in 5G, IoT, and network infrastructure.
+                            </div>
+                            <h3>Companies Providing These Jobs</h3>
+                            <div class="companies-list">
+                                <span>Reliance Jio</span>
+                                <span>Bharti Airtel</span>
+                                <span>Nokia</span>
+                                <span>Ericsson</span>
+                                <span>Huawei</span>
+                            </div>
+                            <h3>Work Environment</h3>
+                            <div class="work-environment">
+                                Mix of office-based network design and field visits for installation and maintenance of communication systems.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta">
+        <div class="container">
+            <h2>Start Your Journey in Electrical and Electronics Engineering</h2>
+            <p>Ready to power the world with innovative electrical and electronic solutions? Contact our counselors to learn more about the BTech in Electrical and Electronics Engineering.</p>
+            <a href="index.html#contact" class="btn">Contact Us</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h2>EduCareer</h2>
+                    <p>Your guide to educational success</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.html#courses">Courses</a></li>
+                        <li><a href="index.html#about">About Us</a></li>
+                        <li><a href="index.html#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-courses">
+                    <h3>Popular Courses</h3>
+                    <ul>
+                        <li><a href="btech.html">BTech</a></li>
+                        <li><a href="mtech.html">MTech</a></li>
+                        <li><a href="mba.html">MBA</a></li>
+                        <li><a href="medical.html">Medical</a></li>
+                    </ul>
+                </div>
+                <div class="footer-social">
+                    <h3>Follow Us</h3>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 EduCareer. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Job roles accordion functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const jobRoleItems = document.querySelectorAll('.job-role-item');
+            
+            jobRoleItems.forEach(item => {
+                const title = item.querySelector('.job-role-title');
+                
+                title.addEventListener('click', () => {
+                    // Close all other items
+                    jobRoleItems.forEach(otherItem => {
+                        if (otherItem !== item && otherItem.classList.contains('active')) {
+                            otherItem.classList.remove('active');
+                        }
+                    });
+                    
+                    // Toggle current item
+                    item.classList.toggle('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>

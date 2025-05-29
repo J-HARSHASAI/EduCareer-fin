@@ -1,0 +1,1023 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MBA Programs - Student Education Career Portal</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Existing styles from original code */
+        .course-header {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+        }
+        
+        .specializations {
+            padding: 80px 0;
+            background-color: #f8f9fa;
+        }
+        
+        .specialization-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .specialization-item {
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .specialization-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .specialization-item h3 {
+            color: #4a6bdf;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .specialization-item h3 i {
+            font-size: 1.2rem;
+        }
+        
+        .career-prospects {
+            padding: 80px 0;
+            background-color: #fff;
+        }
+        
+        .career-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .career-item {
+            text-align: center;
+            padding: 30px 20px;
+            border-radius: 10px;
+            background-color: #f8f9fa;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .career-item:hover {
+            background-color: #4a6bdf;
+            color: #fff;
+        }
+        
+        .career-item:hover i {
+            color: #fff;
+        }
+        
+        .career-item i {
+            font-size: 2.5rem;
+            color: #4a6bdf;
+            margin-bottom: 20px;
+            transition: color 0.3s ease;
+        }
+        
+        .career-item h3 {
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+        
+        .career-item p {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 20px;
+        }
+        
+        .know-more {
+            display: inline-block;
+            background-color: #4a6bdf;
+            color: #fff;
+            padding: 8px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+        }
+        
+        .career-item:hover .know-more {
+            background-color: #fff;
+            color: #4a6bdf;
+        }
+        
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+            z-index: 1000;
+            overflow-y: auto;
+        }
+        
+        .modal-card {
+            background-color: #fff;
+            margin: 10% auto;
+            max-width: 600px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            position: relative;
+            animation: slideIn 0.3s ease;
+        }
+        
+        @keyframes slideIn {
+            from { transform: translateY(-50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        
+        .modal-header {
+            background-color: #4a6bdf;
+            color: #fff;
+            padding: 15px 20px;
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+        }
+        
+        .modal-header h2 {
+            margin: 0;
+            font-size: 1.5rem;
+        }
+        
+        .modal-body {
+            padding: 20px;
+        }
+        
+        .modal-body h3 {
+            color: #4a6bdf;
+            font-size: 1.1rem;
+            margin: 15px 0 10px;
+        }
+        
+        .modal-body p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+        }
+        
+        .modal-body .tag {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 15px;
+        }
+        
+        .modal-body .tag {
+            background-color: #4a6bdf;
+            color: #fff;
+            padding: 6px 12px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+        }
+        
+        .modal-body .career-path {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-bottom: 15px;
+        }
+        
+        .modal-body .career-path span {
+            border: 1px solid #4a6bdf;
+            padding: 6px 12px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+        }
+        
+        .modal-body .career-path i {
+            color: #4a6bdf;
+        }
+        
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            color: #fff;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+        
+        .close-btn:hover {
+            color: #ddd;
+        }
+        
+        /* Remaining original styles (unchanged) */
+        .universities {
+            padding: 80px 0;
+            background-color: #f8f9fa;
+        }
+        
+        .university-list {
+            margin-top: 40px;
+        }
+        
+        .university-item {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            margin-bottom: 20px;
+            transition: transform 0.3s ease;
+        }
+        
+        .university-item:hover {
+            transform: translateX(10px);
+        }
+        
+        .university-logo {
+            width: 80px;
+            height: 80px;
+            background-color: #e9efff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        
+        .university-logo i {
+            font-size: 2rem;
+            color: #4a6bdf;
+        }
+        
+        .university-info h3 {
+            margin-bottom: 5px;
+            color: #333;
+        }
+        
+        .university-info p {
+            color: #666;
+            margin-bottom: 10px;
+        }
+        
+        .university-info .rating {
+            color: #ffc107;
+        }
+        
+        .admission-process {
+            padding: 80px 0;
+            background-color: #fff;
+        }
+        
+        .process-steps {
+            margin-top: 40px;
+            position: relative;
+        }
+        
+        .process-steps::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50px;
+            height: 100%;
+            width: 2px;
+            background-color: #4a6bdf;
+        }
+        
+        .step {
+            display: flex;
+            gap: 30px;
+            margin-bottom: 50px;
+            position: relative;
+        }
+        
+        .step-number {
+            width: 50px;
+            height: 50px;
+            background-color: #4a6bdf;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-weight: 700;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+            z-index: 1;
+        }
+        
+        .step-content {
+            background-color: #f8f9fa;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .step-content h3 {
+            margin-bottom: 15px;
+            color: #333;
+        }
+        
+        .faq {
+            padding: 80px 0;
+            background-color: #f8f9fa;
+        }
+        
+        .faq-list {
+            margin-top: 40px;
+        }
+        
+        .faq-item {
+            margin-bottom: 20px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .faq-question {
+            padding: 20px;
+            background-color: #fff;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+        }
+        
+        .faq-question i {
+            transition: transform 0.3s ease;
+        }
+        
+        .faq-answer {
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            background-color: #f8f9fa;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+        
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+        
+        .faq-item.active .faq-answer {
+            padding: 20px;
+            max-height: 1000px;
+        }
+        
+        .cta {
+            padding: 80px 0;
+            background-color: #4a6bdf;
+            color: #fff;
+            text-align: center;
+        }
+        
+        .cta h2 {
+            margin-bottom: 20px;
+            font-size: 2.5rem;
+        }
+        
+        .cta p {
+            margin-bottom: 30px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            font-size: 1.1rem;
+        }
+        
+        .cta .btn {
+            background-color: #fff;
+            color: #4a6bdf;
+            font-size: 1.1rem;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        
+        .cta .btn:hover {
+            background-color: #f8f9fa;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>EduCareer</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#courses">Courses</a></li>
+                    <li><a href="index.html#about">About Us</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="course-header">
+        <div class="container">
+            <h1>Master of Business Administration (MBA)</h1>
+            <p>A comprehensive postgraduate degree for business leadership and management excellence</p>
+        </div>
+    </section>
+
+    <section class="specializations">
+        <div class="container">
+            <h2 class="section-title">Popular Specializations</h2>
+            <p class="section-description">MBA offers various specializations to match your career goals and interests. Here are some of the most sought-after options:</p>
+            
+            <div class="specialization-list">
+                <div class="specialization-item">
+                    <h3><i class="fas fa-chart-line"></i> Finance</h3>
+                    <p>Focus on financial management, investment analysis, banking, and corporate finance.</p>
+                    <p><strong>Key subjects:</strong> Financial Management, Investment Analysis, Corporate Finance, Banking, Risk Management</p>
+                </div>
+                
+                <div class="specialization-item">
+                    <h3><i class="fas fa-bullhorn"></i> Marketing</h3>
+                    <p>Study of consumer behavior, brand management, digital marketing, and marketing strategy.</p>
+                    <p><strong>Key subjects:</strong> Marketing Management, Consumer Behavior, Digital Marketing, Brand Management</p>
+                </div>
+                
+                <div class="specialization-item">
+                    <h3><i class="fas fa-users"></i> Human Resources</h3>
+                    <p>Focus on talent acquisition, employee development, organizational behavior, and HR analytics.</p>
+                    <p><strong>Key subjects:</strong> Human Resource Management, Organizational Behavior, Talent Management</p>
+                </div>
+                
+                <div class="specialization-item">
+                    <h3><i class="fas fa-globe"></i> International Business</h3>
+                    <p>Study of global business operations, international trade, cross-cultural management.</p>
+                    <p><strong>Key subjects:</strong> International Trade, Global Business Strategy, Cross-Cultural Management</p>
+                </div>
+                
+                <div class="specialization-item">
+                    <h3><i class="fas fa-cogs"></i> Operations Management</h3>
+                    <p>Focus on supply chain management, quality management, and process optimization.</p>
+                    <p><strong>Key subjects:</strong> Supply Chain Management, Quality Management, Project Management</p>
+                </div>
+                
+                <div class="specialization-item">
+                    <h3><i class="fas fa-laptop-code"></i> Information Technology</h3>
+                    <p>Study of IT strategy, digital transformation, and technology management.</p>
+                    <p><strong>Key subjects:</strong> IT Strategy, Digital Transformation, Technology Management, Business Analytics</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="career-prospects">
+        <div class="container">
+            <h2 class="section-title">Career Prospects</h2>
+            <p class="section-description">An MBA degree opens doors to various leadership and management roles across industries. Click "Know More" to explore detailed career paths:</p>
+            
+            <div class="career-grid">
+                <div class="career-item">
+                    <i class="fas fa-briefcase"></i>
+                    <h3>Management Consultant</h3>
+                    <p>Advise organizations on improving performance and solving business problems</p>
+                    <a href="#" class="know-more" data-role="management-consultant">Know More</a>
+                </div>
+                
+                <div class="career-item">
+                    <i class="fas fa-chart-pie"></i>
+                    <h3>Investment Banker</h3>
+                    <p>Assist organizations in raising capital and executing financial transactions</p>
+                    <a href="#" class="know-more" data-role="investment-banker">Know More</a>
+                </div>
+                
+                <div class="career-item">
+                    <i class="fas fa-bullhorn"></i>
+                    <h3>Marketing Manager</h3>
+                    <p>Develop and implement marketing strategies to promote products and services</p>
+                    <a href="#" class="know-more" data-role="marketing-manager">Know More</a>
+                </div>
+                
+                <div class="career-item">
+                    <i class="fas fa-users-cog"></i>
+                    <h3>HR Manager</h3>
+                    <p>Oversee recruitment, employee relations, and organizational development</p>
+                    <a href="#" class="know-more" data-role="hr-manager">Know More</a>
+                </div>
+                
+                <div class="career-item">
+                    <i class="fas fa-project-diagram"></i>
+                    <h3>Project Manager</h3>
+                    <p>Plan, execute, and close projects across various business functions</p>
+                    <a href="#" class="know-more" data-role="project-manager">Know More</a>
+                </div>
+                
+                <div class="career-item">
+                    <i class="fas fa-money-bill-wave"></i>
+                    <h3>Financial Analyst</h3>
+                    <p>Analyze financial data to guide investment decisions and business strategy</p>
+                    <a href="#" class="know-more" data-role="financial-analyst">Know More</a>
+                </div>
+                
+                <div class="career-item">
+                    <i class="fas fa-sitemap"></i>
+                    <h3>Operations Manager</h3>
+                    <p>Oversee production processes and ensure operational efficiency</p>
+                    <a href="#" class="know-more" data-role="operations-manager">Know More</a>
+                </div>
+                
+                <div class="career-item">
+                    <i class="fas fa-rocket"></i>
+                    <h3>Entrepreneur</h3>
+                    <p>Start and manage your own business ventures</p>
+                    <a href="#" class="know-more" data-role="entrepreneur">Know More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal for Flashcard -->
+    <div class="modal" id="careerModal">
+        <div class="modal-card">
+            <div class="modal-header">
+                <h2 id="modal-title"></h2>
+                <span class="close-btn">×</span>
+            </div>
+            <div class="modal-body">
+                <h3>Job Description</h3>
+                <p id="modal-description"></p>
+                <h3>Relevant Subjects</h3>
+                <div class="ptag" id="modal-subjects"></div>
+                <h3>Required Skills</h3>
+                <div class="ptag" id="modal-skills"></div>
+                <h3>Career Path</h3>
+                <div class="career-path" id="modal-career-path"></div>
+                <h3>Salary Range</h3>
+                <p id="modal-salary"></p>
+                <h3>Industry Demand</h3>
+                <p id="modal-demand"></p>
+                <h3>Top Companies</h3>
+                <div class="ptag" id="modal-companies"></div>
+                <h3>Work Environment</h3>
+                <p id="modal-environment"></p>
+            </div>
+        </div>
+    </div>
+
+    <section class="universities">
+        <div class="container">
+            <h2 class="section-title">Top Business Schools for MBA</h2>
+            <p class="section-description">Here are some of the top institutions offering quality MBA programs:</p>
+            
+            <div class="university-list">
+                <div class="university-item">
+                    <div class="university-logo">
+                        <i class="fas fa-university"></i>
+                    </div>
+                    <div class="university-info">
+                        <h3>Indian Institutes of Management (IIMs)</h3>
+                        <p>Premier business schools with campuses across India known for their rigorous MBA programs</p>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="university-item">
+                    <div class="university-logo">
+                        <i class="fas fa-university"></i>
+                    </div>
+                    <div class="university-info">
+                        <h3>XLRI Jamshedpur</h3>
+                        <p>One of India's oldest business schools known for its HR and general management programs</p>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="university-item">
+                    <div class="university-logo">
+                        <i class="fas fa-university"></i>
+                    </div>
+                    <div class="university-info">
+                        <h3>Faculty of Management Studies (FMS), Delhi</h3>
+                        <p>Known for its quality education at relatively lower fees compared to other top B-schools</p>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="university-item">
+                    <div class="university-logo">
+                        <i class="fas fa-university"></i>
+                    </div>
+                    <div class="university-info">
+                        <h3>SP Jain Institute of Management and Research</h3>
+                        <p>Known for its innovative curriculum and industry-focused approach</p>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="university-item">
+                    <div class="university-logo">
+                        <i class="fas fa-university"></i>
+                    </div>
+                    <div class="university-info">
+                        <h3>Indian School of Business (ISB)</h3>
+                        <p>Offers a one-year Post Graduate Program in Management with global recognition</p>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="admission-process">
+        <div class="container">
+            <h2 class="section-title">Admission Process</h2>
+            <p class="section-description">The admission process for MBA programs typically involves the following steps:</p>
+            
+            <div class="process-steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Entrance Examination</h3>
+                        <p>Most MBA admissions are based on national-level entrance exams such as:</p>
+                        <ul>
+                            <li>CAT (Common Admission Test) for IIMs and many other B-schools</li>
+                            <li>XAT, SNAP, NMAT, CMAT, MAT for various other institutions</li>
+                            <li>GMAT for international MBA programs and some Indian B-schools</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Shortlisting</h3>
+                        <p>After qualifying in the entrance exam, candidates are shortlisted based on:</p>
+                        <ul>
+                            <li>Entrance exam score</li>
+                            <li>Academic performance in previous degrees</li>
+                            <li>Work experience (if applicable)</li>
+                            <li>Diversity factors</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Written Ability Test & Group Discussion</h3>
+                        <p>Shortlisted candidates may need to participate in:</p>
+                        <ul>
+                            <li>Written Ability Test (WAT) to assess writing skills</li>
+                            <li>Group Discussion (GD) to evaluate team interaction and communication</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3>Personal Interview</h3>
+                        <p>Final round typically involves a personal interview to assess:</p>
+                        <ul>
+                            <li>Communication skills and personality</li>
+                            <li>Domain knowledge and awareness</li>
+                            <li>Career goals and motivation</li>
+                            <li>Leadership potential</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">5</div>
+                    <div class="step-content">
+                        <h3>Final Selection & Admission</h3>
+                        <p>Based on overall performance across all stages, final selection is made followed by:</p>
+                        <ul>
+                            <li>Offer letter issuance</li>
+                            <li>Fee payment and document verification</li>
+                            <li>Registration and orientation</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="faq">
+        <div class="container">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        What is the duration of an MBA program?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>A standard full-time MBA program is typically 2 years (4 semesters) in duration. However, there are also one-year MBA programs, executive MBA programs (for working professionals), and part-time MBA programs that may extend to 3 years.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Is work experience required for MBA admission?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Work experience requirements vary by institution and program type. While many regular MBA programs accept fresh graduates, having relevant work experience (typically 2-5 years) is often preferred and can strengthen your application. Executive MBA programs specifically require significant work experience (usually 5+ years).</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Which MBA specialization has the best career prospects?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Career prospects depend on market trends, personal interests, and skills. Currently, Finance, Marketing, and Data Analytics/Business Intelligence have strong demand. However, the best specialization is one that aligns with your career goals and leverages your strengths. Many successful MBA graduates also opt for General Management to keep their options open.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        What is the difference between PGDM and MBA?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>MBA (Master of Business Administration) is a degree awarded by universities, while PGDM (Post Graduate Diploma in Management) is a diploma offered by autonomous institutions like IIMs. Both are equivalent in terms of curriculum and recognition. The main difference is regulatory: universities fall under UGC, while institutions offering PGDM are approved by AICTE. Both qualifications are well-recognized by employers.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        How can I prepare for MBA entrance exams?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Preparation for MBA entrance exams like CAT, XAT, or GMAT typically involves:</p>
+                        <ul>
+                            <li>Understanding the exam pattern and syllabus</li>
+                            <li>Building strong fundamentals in Quantitative Aptitude, Verbal Ability, Logical Reasoning, and Data Interpretation</li>
+                            <li>Regular practice with mock tests and previous years' papers</li>
+                            <li>Time management strategies for the actual exam</li>
+                            <li>Joining coaching programs or self-study with quality resources</li>
+                        </ul>
+                        <p>Start preparation at least 6-8 months before the exam for best results.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta">
+        <div class="container">
+            <h2>Ready to Advance Your Business Career?</h2>
+            <p>Take the first step towards leadership excellence with an MBA degree. Explore our resources and get guidance from experts.</p>
+            <a href="index.html#contact" class="btn">Contact Our Counselors</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h2>EduCareer</h2>
+                    <p>Your guide to educational success</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.html#courses">Courses</a></li>
+                        <li><a href="index.html#about">About Us</a></li>
+                        <li><a href="index.html#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-courses">
+                    <h3>Popular Courses</h3>
+                    <ul>
+                        <li><a href="btech.html">BTech</a></li>
+                        <li><a href="mtech.html">MTech</a></li>
+                        <li><a href="mba.html">MBA</a></li>
+                        <li><a href="medical.html">Medical</a></li>
+                    </ul>
+                </div>
+                <div class="footer-social">
+                    <h3>Follow Us</h3>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 EduCareer. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // FAQ accordion functionality (unchanged)
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqItems = document.querySelectorAll('.faq-item');
+            
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                
+                question.addEventListener('click', () => {
+                    faqItems.forEach(otherItem => {
+                        if(otherItem !== item && otherItem.classList.contains('active')) {
+                            otherItem.classList.remove('active');
+                        }
+                    });
+                    item.classList.toggle('active');
+                });
+            });
+
+            // Career prospects modal functionality
+            const knowMoreLinks = document.querySelectorAll('.know-more');
+            const modal = document.getElementById('careerModal');
+            const modalTitle = document.getElementById('modal-title');
+            const modalDescription = document.getElementById('modal-description');
+            const modalSubjects = document.getElementById('modal-subjects');
+            const modalSkills = document.getElementById('modal-skills');
+            const modalCareerPath = document.getElementById('modal-career-path');
+            const modalSalary = document.getElementById('modal-salary');
+            const modalDemand = document.getElementById('modal-demand');
+            const modalCompanies = document.getElementById('modal-companies');
+            const modalEnvironment = document.getElementById('modal-environment');
+            const closeBtn = document.querySelector('.close-btn');
+
+            const jobRoles = {
+                'management-consultant': {
+                    title: 'Management Consultant',
+                    description: 'Advises organizations to enhance performance, efficiency, and profitability through strategic solutions.',
+                    subjects: ['Strategic Management', 'Business Analytics'],
+                    skills: ['Problem Solving', 'Data Analysis', 'Communication'],
+                    careerPath: ['Junior Consultant', 'Consultant', 'Senior Consultant', 'Partner'],
+                    salary: '₹9-30 LPA',
+                    demand: 'High demand in consulting firms.',
+                    companies: ['McKinsey', 'BCG', 'Deloitte'],
+                    environment: 'Office-based with client site visits.'
+                },
+                'investment-banker': {
+                    title: 'Investment Banker',
+                    description: 'Assists in raising capital and managing financial transactions like mergers and acquisitions.',
+                    subjects: ['Corporate Finance', 'Investment Analysis'],
+                    skills: ['Financial Modeling', 'Negotiation', 'Market Knowledge'],
+                    careerPath: ['Analyst', 'Associate', 'Vice President', 'Managing Director'],
+                    salary: '₹12-40 LPA',
+                    demand: 'Strong demand in financial services.',
+                    companies: ['Goldman Sachs', 'JP Morgan', 'Morgan Stanley'],
+                    environment: 'Office-based with long hours in financial hubs.'
+                },
+                'marketing-manager': {
+                    title: 'Marketing Manager',
+                    description: 'Develops strategies to promote products/services, managing campaigns and brand identity.',
+                    subjects: ['Marketing Management', 'Consumer Behavior'],
+                    skills: ['Digital Marketing', 'Brand Management', 'Market Research'],
+                    careerPath: ['Marketing Executive', 'Marketing Manager', 'Chief Marketing Officer'],
+                    salary: '₹8-25 LPA',
+                    demand: 'High demand in FMCG and tech.',
+                    companies: ['Unilever', 'P&G', 'Amazon'],
+                    environment: 'Office-based with occasional travel.'
+                },
+                'hr-manager': {
+                    title: 'HR Manager',
+                    description: 'Manages recruitment, employee relations, and organizational culture to support business goals.',
+                    subjects: ['HR Management', 'Organizational Behavior'],
+                    skills: ['Recruitment', 'Employee Engagement', 'HR Analytics'],
+                    careerPath: ['HR Executive', 'HR Manager', 'Chief HR Officer'],
+                    salary: '₹6-20 LPA',
+                    demand: 'Steady demand across industries.',
+                    companies: ['Tata Group', 'Accenture', 'Wipro'],
+                    environment: 'Office-based with employee interactions.'
+                },
+                'project-manager': {
+                    title: 'Project Manager',
+                    description: 'Plans and executes projects, ensuring timely delivery within budget across business functions.',
+                    subjects: ['Project Management', 'Operations Management'],
+                    skills: ['Project Planning', 'Risk Management', 'Leadership'],
+                    careerPath: ['Project Coordinator', 'Project Manager', 'Program Director'],
+                    salary: '₹8-25 LPA',
+                    demand: 'High demand in IT and consulting.',
+                    companies: ['Infosys', 'Capgemini', 'Microsoft'],
+                    environment: 'Office-based with team meetings.'
+                },
+                'financial-analyst': {
+                    title: 'Financial Analyst',
+                    description: 'Analyzes financial data to guide investment decisions and business strategies.',
+                    subjects: ['Financial Management', 'Business Analytics'],
+                    skills: ['Financial Modeling', 'Data Analysis', 'Excel'],
+                    careerPath: ['Junior Analyst', 'Financial Analyst', 'Finance Manager'],
+                    salary: '₹5-18 LPA',
+                    demand: 'Growing demand in banking and finance.',
+                    companies: ['HDFC Bank', 'KPMG', 'PwC'],
+                    environment: 'Office-based with data focus.'
+                },
+                'operations-manager': {
+                    title: 'Operations Manager',
+                    description: 'Oversees production and supply chains to ensure operational efficiency and quality.',
+                    subjects: ['Supply Chain Management', 'Quality Management'],
+                    skills: ['Process Optimization', 'Supply Chain', 'Leadership'],
+                    careerPath: ['Operations Executive', 'Operations Manager', 'COO'],
+                    salary: '₹7-22 LPA',
+                    demand: 'High demand in manufacturing and logistics.',
+                    companies: ['Amazon', 'Reliance', 'DHL'],
+                    environment: 'Office and production site visits.'
+                },
+                'entrepreneur': {
+                    title: 'Entrepreneur',
+                    description: 'Launches and manages businesses, innovating solutions for market opportunities.',
+                    subjects: ['Entrepreneurship', 'Strategic Management'],
+                    skills: ['Business Planning', 'Fundraising', 'Innovation'],
+                    careerPath: ['Founder', 'Entrepreneur', 'Serial Entrepreneur'],
+                    salary: '₹0-100+ LPA',
+                    demand: 'Growing in tech and startups.',
+                    companies: ['Self-employed', 'Y Combinator', 'T-Hub'],
+                    environment: 'Flexible with networking and investor meetings.'
+                }
+            };
+
+            knowMoreLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const role = link.getAttribute('data-role');
+                    const job = jobRoles[role];
+                    
+                    modalTitle.textContent = job.title;
+                    modalDescription.textContent = job.description;
+                    modalSubjects.innerHTML = job.subjects.map(s => `<span class="tag">${s}</span>`).join('');
+                    modalSkills.innerHTML = job.skills.map(s => `<span class="tag">${s}</span>`).join('');
+                    modalCareerPath.innerHTML = job.careerPath.map((step, i) => 
+                        `${i > 0 ? '<i class="fas fa-arrow-right"></i>' : ''}<span>${step}</span>`
+                    ).join('');
+                    modalSalary.textContent = job.salary;
+                    modalDemand.textContent = job.demand;
+                    modalCompanies.innerHTML = job.companies.map(c => `<span class="tag">${c}</span>`).join('');
+                    modalEnvironment.textContent = job.environment;
+                    
+                    modal.style.display = 'block';
+                });
+            });
+
+            closeBtn.addEventListener('click', () => {
+                modal.style.display = 'none';
+            });
+
+            window.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    modal.style.display = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

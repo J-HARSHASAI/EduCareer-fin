@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BTech in Electronics and Communication Engineering - EduCareer</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        .course-header {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://static.vecteezy.com/system/resources/thumbnails/033/445/948/small_2x/abstract-tech-background-filled-with-a-mesmerizing-array-of-circuitry-patterns-ai-generative-photo.jpeg');
+            background-size: cover;
+            background-position: center;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+        }
+        
+        .course-details {
+            padding: 80px 0;
+            background-color: #f8f9fa;
+        }
+        
+        .details-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .details-content h2 {
+            color: #4a6bdf;
+            margin-bottom: 20px;
+        }
+        
+        .details-content p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        
+        .details-content ul {
+            list-style-type: disc;
+            padding-left: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .details-content ul li {
+            color: #333;
+            margin-bottom: 10px;
+        }
+        
+        .job-roles-list {
+            margin-top: 20px;
+        }
+        
+        .job-role-item {
+            margin-bottom: 15px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+        }
+        
+        .job-role-title {
+            padding: 15px;
+            background-color: #fff;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            color: #333;
+        }
+        
+        .job-role-title i {
+            transition: transform 0.3s ease;
+        }
+        
+        .job-role-details {
+            padding: 0 15px;
+            max-height: 0;
+            overflow: hidden;
+            background-color: #f8f9fa;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+        
+        .job-role-item.active .job-role-title i {
+            transform: rotate(180deg);
+        }
+        
+        .job-role-item.active .job-role-details {
+            padding: 15px;
+            max-height: 1200px;
+        }
+        
+        .job-role-details h3 {
+            color: #4a6bdf;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+        
+        .job-role-details .job-description {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        
+        .job-role-details .subjects-list,
+        .job-role-details .skills-list,
+        .job-role-details .companies-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .job-role-details .subjects-list span,
+        .job-role-details .skills-list span,
+        .job-role-details .companies-list span {
+            background-color: #4a6bdf;
+            color: #fff;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+        
+        .job-role-details .career-path {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .job-role-details .career-path span {
+            background-color: #fff;
+            border: 1px solid #4a6bdf;
+            padding: 8px 15px;
+            border-radius: 5px;
+            font-size: 0.9rem;
+        }
+        
+        .job-role-details .career-path i {
+            color: #4a6bdf;
+        }
+        
+        .job-role-details .salary-range {
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        
+        .job-role-details .industry-demand,
+        .job-role-details .work-environment {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        
+        .cta {
+            padding: 80px 0;
+            background-color: #4a6bdf;
+            color: #fff;
+            text-align: center;
+        }
+        
+        .cta h2 {
+            margin-bottom: 20px;
+            font-size: 2.5rem;
+        }
+        
+        .cta p {
+            margin-bottom: 30px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            font-size: 1.1rem;
+        }
+        
+        .cta .btn {
+            background-color: #fff;
+            color: #4a6bdf;
+            font-size: 1.1rem;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        
+        .cta .btn:hover {
+            background-color: #f8f9fa;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>EduCareer</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#courses">Courses</a></li>
+                    <li><a href="index.html#about">About Us</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="course-header">
+        <div class="container">
+            <h1>BTech in Electronics and Communication Engineering</h1>
+            <p>Connect the world with advanced communication systems and cutting-edge electronics</p>
+        </div>
+    </section>
+
+    <section class="course-details">
+        <div class="container">
+            <div class="details-content">
+                <h2>Course Description</h2>
+                <p>Electronics and Communication Engineering (ECE) focuses on the design, development, and application of electronic devices, circuits, and communication systems. This field equips students with skills to innovate in areas such as wireless communication, embedded systems, VLSI design, and signal processing, driving advancements in telecommunications, IoT, and consumer electronics.</p>
+                
+                <h2>Relevant Subjects</h2>
+                <ul>
+                    <li>Digital Signal Processing</li>
+                    <li>VLSI Design</li>
+                    <li>Communication Systems</li>
+                    <li>Microprocessors and Microcontrollers</li>
+                    <li>Analog Electronics</li>
+                    <li>Embedded Systems</li>
+                </ul>
+                
+                <h2>Required Skills</h2>
+                <ul>
+                    <li>Circuit Design (Cadence, PSpice)</li>
+                    <li>Embedded Programming</li>
+                    <li>Signal Processing</li>
+                    <li>VLSI Design Tools</li>
+                    <li>Wireless Communication</li>
+                    <li>Problem Solving</li>
+                    <li>Team Collaboration</li>
+                </ul>
+                
+                <h2>Job Roles After Completion</h2>
+                <div class="job-roles-list">
+                    <div class="job-role-item">
+                        <div class="job-role-title">
+                            VLSI Design Engineer
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="job-role-details">
+                            <h3>Job Description</h3>
+                            <div class="job-description">
+                                VLSI Design Engineers design and develop integrated circuits and chips using tools like Cadence and Synopsys. They create layouts, perform simulations, and optimize designs for performance, power, and area. They collaborate with fabrication teams to ensure chip functionality and compliance with industry standards.
+                            </div>
+                            <h3>Relevant Subjects</h3>
+                            <div class="subjects-list">
+                                <span>VLSI Design</span>
+                                <span>Analog Electronics</span>
+                            </div>
+                            <h3>Required Skills</h3>
+                            <div class="skills-list">
+                                <span>Cadence</span>
+                                <span>Synopsys</span>
+                                <span>Chip Design</span>
+                                <span>Verification</span>
+                            </div>
+                            <h3>Career Path</h3>
+                            <div class="career-path">
+                                <span>Junior VLSI Engineer</span>
+                                <i class="fas fa-arrow-right"></i>
+                                <span>VLSI Design Engineer</span>
+                                <i class="fas fa-arrow-right"></i>
+                                <span>Senior VLSI Engineer</span>
+                                <i class="fas fa-arrow-right"></i>
+                                <span>Chip Design Lead</span>
+                            </div>
+                            <h3>Salary Range</h3>
+                            <div class="salary-range">₹7-25 LPA</div>
+                            <h3>Industry Demand</h3>
+                            <div class="industry-demand">
+                                High demand in semiconductor, consumer electronics, and automotive industries due to the need for advanced chip designs.
+                            </div>
+                            <h3>Companies Providing These Jobs</h3>
+                            <div class="companies-list">
+                                <span>Intel</span>
+                                <span>Qualcomm</span>
+                                <span>Texas Instruments</span>
+                                <span>MediaTek</span>
+                                <span>Samsung</span>
+                            </div>
+                            <h3>Work Environment</h3>
+                            <div class="work-environment">
+                                Primarily office-based for design and simulation, with occasional collaboration with fabrication facilities for testing and validation.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="job-role-item">
+                        <div class="job-role-title">
+                            Embedded Systems Engineer
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="job-role-details">
+                            <h3>Job Description</h3>
+                            <div class="job-description">
+                                Embedded Systems Engineers design and program embedded systems for applications like IoT devices, automotive electronics, and consumer products. They write firmware, program microcontrollers, and integrate hardware and software components. They also perform debugging and testing to ensure system reliability and performance.
+                            </div>
+                            <h3>Relevant Subjects</h3>
+                            <div class="subjects-list">
+                                <span>Embedded Systems</span>
+                                <span>Microprocessors and Microcontrollers</span>
+                            </div>
+                            <h3>Required Skills</h3>
+                            <div class="skills-list">
+                                <span>Microcontroller Programming</span>
+                                <span>Firmware Development</span>
+                                <span>RTOS</span>
+                                <span>Debugging</span>
+                            </div>
+                            <h3>Career Path</h3>
+                            <div class="career-path">
+                                <span>Junior Embedded Engineer</span>
+                                <i class="fas fa-arrow-right"></i>
+                                <span>Embedded Systems Engineer</span>
+                                <i class="fas fa-arrow-right"></i>
+                                <span>Senior Embedded Engineer</span>
+                                <i class="fas fa-arrow-right"></i>
+                                <span>Embedded Systems Architect</span>
+                            </div>
+                            <h3>Salary Range</h3>
+                            <div class="salary-range">₹6-22 LPA</div>
+                            <h3>Industry Demand</h3>
+                            <div class="industry-demand">
+                                Growing demand in IoT, automotive, and consumer electronics due to the rise of smart devices and automation.
+                            </div>
+                            <h3>Companies Providing These Jobs</h3>
+                            <div class="companies-list">
+                                <span>Robert Bosch</span>
+                                <span>Tata Elxsi</span>
+                                <span>NXP Semiconductors</span>
+                                <span>STMicroelectronics</span>
+                                <span>Honeywell</span>
+                            </div>
+                            <h3>Work Environment</h3>
+                            <div class="work-environment">
+                                Work in labs for hardware development and testing, with office-based programming and system integration tasks.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="job-role-item">
+                        <div class="job-role-title">
+                            Signal Processing Engineer
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="job-role-details">
+                            <h3>Job Description</h3>
+                            <div class="job-description">
+                                Signal Processing Engineers develop algorithms to analyze and process signals for applications like audio, video, and telecommunications. They use tools like MATLAB and Python to design filters, enhance signal quality, and implement real-time processing systems. They collaborate with product teams to integrate signal processing solutions into devices.
+                            </div>
+                            <h3>Relevant Subjects</h3>
+                            <div class="subjects-list">
+                                <span>Digital Signal Processing</span>
+                                <span>Communication Systems</span>
+                            </div>
+                            <h3>Required Skills</h3>
+                            <div class="skills-list">
+                                <span>Signal Processing</span>
+                                <span>MATLAB</span>
+                                <span>Python</span>
+                                <span>Algorithm Development</span>
+                            </div>
+                            <h3>Career Path</h3>
+                            <div class="career-path">
+                                <span>Junior Signal Processing Engineer</span>
+                                <i class="fas fa-arrow-right"></i>
+                                <span>Signal Processing Engineer</span>
+                                <i class="fas fa-arrow-right"></i>
+                                <span>Senior Signal Processing Engineer</span>
+                                <i class="fas fa-arrow-right"></i>
+                                <span>Signal Processing Specialist</span>
+                            </div>
+                            <h3>Salary Range</h3>
+                            <div class="salary-range">₹6-20 LPA</div>
+                            <h3>Industry Demand</h3>
+                            <div class="industry-demand">
+                                Strong demand in telecommunications, audio processing, and medical imaging due to advancements in signal processing technologies.
+                            </div>
+                            <h3>Companies Providing These Jobs</h3>
+                            <div class="companies-list">
+                                <span>Qualcomm</span>
+                                <span>Texas Instruments</span>
+                                <span>Bose</span>
+                                <span>Philips</span>
+                                <span>Nokia</span>
+                            </div>
+                            <h3>Work Environment</h3>
+                            <div class="work-environment">
+                                Primarily office-based for algorithm development and simulation, with lab work for testing and integration.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="job-role-item">
+                        <div class="job-role-title">
+                            Telecommunications Engineer
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="job-role-details">
+                            <h3>Job Description</h3>
+                            <div class="job-description">
+                                Telecommunications Engineers design and maintain communication systems, including wireless networks, fiber optics, and satellite systems. They analyze signal performance, optimize network coverage, and ensure reliable connectivity. They also work on emerging technologies like 5G and collaborate with service providers to implement network solutions.
+                            </div>
+                            <h3>Relevant Subjects</h3>
+                            <div class="subjects-list">
+                                <span>Communication Systems</span>
+                                <span>Digital Signal Processing</span>
+                            </div>
+                            <h3>Required Skills</h3>
+                            <div class="skills-list">
+                                <span>Network Design</span>
+                                <span>Wireless Communication</span>
+                                <span>Signal Processing</span>
+                                <span>Troubleshooting</span>
+                            </div>
+                            <h3>Career Path</h3>
+                            <div class="career-path">
+                                <span>Junior Telecom Engineer</span>
+                                <i class="fas fa-arrow-right"></i>
+                                <span>Telecommunications Engineer</span>
+                                <i class="fas fa-arrow-right"></i>
+                                <span>Senior Telecom Engineer</span>
+                                <i class="fas fa-arrow-right"></i>
+                                <span>Network Architect</span>
+                            </div>
+                            <h3>Salary Range</h3>
+                            <div class="salary-range">₹5-20 LPA</div>
+                            <h3>Industry Demand</h3>
+                            <div class="industry-demand">
+                                High demand in telecommunications and IT sectors due to advancements in 5G, IoT, and network infrastructure.
+                            </div>
+                            <h3>Companies Providing These Jobs</h3>
+                            <div class="companies-list">
+                                <span>Reliance Jio</span>
+                                <span>Bharti Airtel</span>
+                                <span>Nokia</span>
+                                <span>Ericsson</span>
+                                <span>Huawei</span>
+                            </div>
+                            <h3>Work Environment</h3>
+                            <div class="work-environment">
+                                Mix of office-based network design and field visits for installation and maintenance of communication systems.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="job-role-item">
+                        <div class="job-role-title">
+                            RF Engineer
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="job-role-details">
+                            <h3>Job Description</h3>
+                            <div class="job-description">
+                                RF Engineers design and optimize radio frequency systems for wireless communication, including antennas, transmitters, and receivers. They analyze RF performance, conduct field tests, and ensure compliance with regulatory standards. They also work on technologies like 5G and IoT, collaborating with network teams to enhance connectivity.
+                            </div>
+                            <h3>Relevant Subjects</h3>
+                            <div class="subjects-list">
+                                <span>Communication Systems</span>
+                                <span>Analog Electronics</span>
+                            </div>
+                            <h3>Required Skills</h3>
+                            <div class="skills-list">
+                                <span>RF Design</span>
+                                <span>Antenna Design</span>
+                                <span>Network Optimization</span>
+                                <span>Testing Tools</span>
+                            </div>
+                            <h3>Career Path</h3>
+                            <div class="career-path">
+                                <span>Junior RF Engineer</span>
+                                <i class="fas fa-arrow-right"></i>
+                                <span>RF Engineer</span>
+                                <i class="fas fa-arrow-right"></i>
+                                <span>Senior RF Engineer</span>
+                                <i class="fas fa-arrow-right"></i>
+                                <span>RF Systems Architect</span>
+                            </div>
+                            <h3>Salary Range</h3>
+                            <div class="salary-range">₹6-22 LPA</div>
+                            <h3>Industry Demand</h3>
+                            <div class="industry-demand">
+                                Growing demand in telecommunications, aerospace, and defense due to advancements in wireless technologies and 5G networks.
+                            </div>
+                            <h3>Companies Providing These Jobs</h3>
+                            <div class="companies-list">
+                                <span>Qualcomm</span>
+                                <span>Nokia</span>
+                                <span>Ericsson</span>
+                                <span>Reliance Jio</span>
+                                <span>ISRO</span>
+                            </div>
+                            <h3>Work Environment</h3>
+                            <div class="work-environment">
+                                Mix of office-based design and simulation with field testing to optimize RF systems and network performance.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta">
+        <div class="container">
+            <h2>Start Your Journey in Electronics and Communication Engineering</h2>
+            <p>Ready to innovate in electronics and communication technologies? Contact our counselors to learn more about the BTech in Electronics and Communication Engineering.</p>
+            <a href="index.html#contact" class="btn">Contact Us</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h2>EduCareer</h2>
+                    <p>Your guide to educational success</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.html#courses">Courses</a></li>
+                        <li><a href="index.html#about">About Us</a></li>
+                        <li><a href="index.html#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-courses">
+                    <h3>Popular Courses</h3>
+                    <ul>
+                        <li><a href="btech.html">BTech</a></li>
+                        <li><a href="mtech.html">MTech</a></li>
+                        <li><a href="mba.html">MBA</a></li>
+                        <li><a href="medical.html">Medical</a></li>
+                    </ul>
+                </div>
+                <div class="footer-social">
+                    <h3>Follow Us</h3>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 EduCareer. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Job roles accordion functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const jobRoleItems = document.querySelectorAll('.job-role-item');
+            
+            jobRoleItems.forEach(item => {
+                const title = item.querySelector('.job-role-title');
+                
+                title.addEventListener('click', () => {
+                    // Close all other items
+                    jobRoleItems.forEach(otherItem => {
+                        if (otherItem !== item && otherItem.classList.contains('active')) {
+                            otherItem.classList.remove('active');
+                        }
+                    });
+                    
+                    // Toggle current item
+                    item.classList.toggle('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>

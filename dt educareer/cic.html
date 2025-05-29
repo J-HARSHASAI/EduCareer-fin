@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BTech in Computer Science (Cybersecurity) - EduCareer</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        .course-header {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://hoosac.org/uploads/application/images/1000/cybersecurity.jpg');
+            background-size: cover;
+            background-position: center;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+        }
+        
+        .course-details {
+            padding: 80px 0;
+            background-color: #f8f9fa;
+        }
+        
+        .details-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .details-content h2 {
+            color: #4a6bdf;
+            margin-bottom: 20px;
+        }
+        
+        .details-content p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        
+        .details-content ul {
+            list-style-type: disc;
+            padding-left: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .details-content ul li {
+            color: #333;
+            margin-bottom: 10px;
+        }
+        
+        .job-roles-list {
+            margin-top: 20px;
+        }
+        
+        .job-role-item {
+            margin-bottom: 15px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+        }
+        
+        .job-role-title {
+            padding: 15px;
+            background-color: #fff;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            color: #333;
+        }
+        
+        .job-role-title i {
+            transition: transform 0.3s ease;
+        }
+        
+        .job-role-details {
+            padding: 0 15px;
+            max-height: 0;
+            overflow: hidden;
+            background-color: #f8f9fa;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+        
+        .job-role-item.active .job-role-title i {
+            transform: rotate(180deg);
+        }
+        
+        .job-role-item.active .job-role-details {
+            padding: 15px;
+            max-height: 1200px;
+        }
+        
+        .job-role-details h3 {
+            color: #4a6bdf;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+        
+        .job-role-details .job-description {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        
+        .job-role-details .subjects-list,
+        .job-role-details .skills-list,
+        .job-role-details .companies-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .job-role-details .subjects-list span,
+        .job-role-details .skills-list span,
+        .job-role-details .companies-list span {
+            background-color: #4a6bdf;
+            color: #fff;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+        
+        .job-role-details .career-path {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .job-role-details .career-path span {
+            background-color: #fff;
+            border: 1px solid #4a6bdf;
+            padding: 8px 15px;
+            border-radius: 5px;
+            font-size: 0.9rem;
+        }
+        
+        .job-role-details .career-path i {
+            color: #4a6bdf;
+        }
+        
+        .job-role-details .salary-range {
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        
+        .job-role-details .industry-demand,
+        .job-role-details .work-environment {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        
+        .cta {
+            padding: 80px 0;
+            background-color: #4a6bdf;
+            color: #fff;
+            text-align: center;
+        }
+        
+        .cta h2 {
+            margin-bottom: 20px;
+            font-size: 2.5rem;
+        }
+        
+        .cta p {
+            margin-bottom: 30px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            font-size: 1.1rem;
+        }
+        
+        .cta .btn {
+            background-color: #fff;
+            color: #4a6bdf;
+            font-size: 1.1rem;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        
+        .cta .btn:hover {
+            background-color: #f8f9fa;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>EduCareer</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#courses">Courses</a></li>
+                    <li><a href="index.html#about">About Us</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="course-header">
+        <div class="container">
+            <h1>BTech in Computer Science (Cybersecurity)</h1>
+            <p>Secure the digital world with advanced cybersecurity solutions</p>
+        </div>
+    </section>
+
+    <section class="course-details">
+        <div class="container">
+            <div class="details-content">
+                <h2>Course Description</h2>
+                <p>BTech in Computer Science with a specialization in Cybersecurity focuses on protecting systems, networks, and data from cyber threats. This field equips students with skills to design secure systems, analyze vulnerabilities, and implement robust security measures, addressing challenges in industries like finance, healthcare, and government.</p>
+                
+                <h2>Relevant Subjects</h2>
+                <ul>
+                    <li>Network Security</li>
+                    <li>Cryptography</li>
+                    <li>Ethical Hacking</li>
+                    <li>Secure Software Development</li>
+                    <li>Digital Forensics</li>
+                    <li>Cloud Security</li>
+                </ul>
+                
+                <h2>Required Skills</h2>
+                <ul>
+                    <li>Penetration Testing</li>
+                    <li>Encryption Techniques</li>
+                    <li>Security Auditing</li>
+                    <li>Secure Coding (Python, Java)</li>
+                    <li>Threat Analysis</li>
+                    <li>Problem Solving</li>
+                    <li>Team Collaboration</li>
+                </ul>
+                
+                <h2>Job Roles After Completion</h2>
+                <div class="job-roles-list">
+                    <div class="job-role-item">
+                        <div class="job-role-title">
+                            Cybersecurity Analyst
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="job-role-details">
+                            <h3>Job Description</h3>
+                            <div class="job-description">
+                                Cybersecurity Analysts monitor and protect systems from cyber threats by analyzing security alerts, investigating incidents, and implementing protective measures. They use tools like Splunk and Wireshark to detect vulnerabilities and ensure compliance with security policies. They collaborate with IT teams to strengthen organizational security.
+                            </div>
+                            <h3>Relevant Subjects</h3>
+                            <div class="subjects-list">
+                                <span>Network Security</span>
+                                <span>Digital Forensics</span>
+                            </div>
+                            <h3>Required Skills</h3>
+                            <div class="skills-list">
+                                <span>Threat Analysis</span>
+                                <span>Splunk</span>
+                                <span>Wireshark</span>
+                                <span>Incident Response</span>
+                            </div>
+                            <h3>Career Path</h3>
+                            <div class="career-path">
+                                <span>Junior Cybersecurity Analyst</span>
+                                <i class="fas fa-arrow-right"></i>
+                                <span>Cybersecurity Analyst</span>
+                                <i class="fas fa-arrow-right"></i>
+                                <span>Senior Cybersecurity Analyst</span>
+                                <i class="fas fa-arrow-right"></i>
+                                <span>Security Consultant</span>
+                            </div>
+                            <h3>Salary Range</h3>
+                            <div class="salary-range">₹6-22 LPA</div>
+                            <h3>Industry Demand</h3>
+                            <div class="industry-demand">
+                                High demand in IT, finance, and government sectors due to increasing cyber threats and data breaches.
+                            </div>
+                            <h3>Companies Providing These Jobs</h3>
+                            <div class="companies-list">
+                                <span>Palo Alto Networks</span>
+                                <span>Cisco</span>
+                                <span>IBM</span>
+                                <span>Accenture</span>
+                                <span>TCS</span>
+                            </div>
+                            <h3>Work Environment</h3>
+                            <div class="work-environment">
+                                Office-based for monitoring and analysis, with occasional on-site work for incident response and system audits.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="job-role-item">
+                        <div class="job-role-title">
+                            Ethical Hacker
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="job-role-details">
+                            <h3>Job Description</h3>
+                            <div class="job-description">
+                                Ethical Hackers perform controlled attacks on systems to identify vulnerabilities before malicious hackers exploit them. They use tools like Metasploit and Kali Linux to conduct penetration testing and provide recommendations for improving security. They work with organizations to strengthen defenses against cyber attacks.
+                            </div>
+                            <h3>Relevant Subjects</h3>
+                            <div class="subjects-list">
+                                <span>Ethical Hacking</span>
+                                <span>Network Security</span>
+                            </div>
+                            <h3>Required Skills</h3>
+                            <div class="skills-list">
+                                <span>Penetration Testing</span>
+                                <span>Metasploit</span>
+                                <span>Kali Linux</span>
+                                <span>Vulnerability Assessment</span>
+                            </div>
+                            <h3>Career Path</h3>
+                            <div class="career-path">
+                                <span>Junior Ethical Hacker</span>
+                                <i class="fas fa-arrow-right"></i>
+                                <span>Ethical Hacker</span>
+                                <i class="fas fa-arrow-right"></i>
+                                <span>Senior Ethical Hacker</span>
+                                <i class="fas fa-arrow-right"></i>
+                                <span>Security Consultant</span>
+                            </div>
+                            <h3>Salary Range</h3>
+                            <div class="salary-range">₹7-25 LPA</div>
+                            <h3>Industry Demand</h3>
+                            <div class="industry-demand">
+                                Growing demand across all sectors due to the need for proactive security measures against cyber threats.
+                            </div>
+                            <h3>Companies Providing These Jobs</h3>
+                            <div class="companies-list">
+                                <span>FireEye</span>
+                                <span>Symantec</span>
+                                <span>Wipro</span>
+                                <span>Infosys</span>
+                                <span>KPMG</span>
+                            </div>
+                            <h3>Work Environment</h3>
+                            <div class="work-environment">
+                                Mix of office-based testing and remote work for penetration testing, with collaboration with security teams for reporting.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="job-role-item">
+                        <div class="job-role-title">
+                            Security Software Developer
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="job-role-details">
+                            <h3>Job Description</h3>
+                            <div class="job-description">
+                                Security Software Developers create secure applications and tools to protect systems and data. They write code in languages like Python and Java, incorporating security best practices to prevent vulnerabilities. They also test and maintain software to ensure it meets security standards and resists attacks.
+                            </div>
+                            <h3>Relevant Subjects</h3>
+                            <div class="subjects-list">
+                                <span>Secure Software Development</span>
+                                <span>Cryptography</span>
+                            </div>
+                            <h3>Required Skills</h3>
+                            <div class="skills-list">
+                                <span>Secure Coding</span>
+                                <span>Python/Java</span>
+                                <span>Code Review</span>
+                                <span>Security Testing</span>
+                            </div>
+                            <h3>Career Path</h3>
+                            <div class="career-path">
+                                <span>Junior Security Developer</span>
+                                <i class="fas fa-arrow-right"></i>
+                                <span>Security Software Developer</span>
+                                <i class="fas fa-arrow-right"></i>
+                                <span>Senior Security Developer</span>
+                                <i class="fas fa-arrow-right"></i>
+                                <span>Security Architect</span>
+                            </div>
+                            <h3>Salary Range</h3>
+                            <div class="salary-range">₹6-23 LPA</div>
+                            <h3>Industry Demand</h3>
+                            <div class="industry-demand">
+                                High demand in software development and IT sectors due to the need for secure applications in a digital-first world.
+                            </div>
+                            <h3>Companies Providing These Jobs</h3>
+                            <div class="companies-list">
+                                <span>Microsoft</span>
+                                <span>Google</span>
+                                <span>Amazon</span>
+                                <span>HCL Technologies</span>
+                                <span>Oracle</span>
+                            </div>
+                            <h3>Work Environment</h3>
+                            <div class="work-environment">
+                                Primarily office-based for coding and testing, with collaboration with security teams to ensure application integrity.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="job-role-item">
+                        <div class="job-role-title">
+                            Cloud Security Engineer
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="job-role-details">
+                            <h3>Job Description</h3>
+                            <div class="job-description">
+                                Cloud Security Engineers secure cloud-based systems and data by implementing security controls and monitoring for threats. They use platforms like AWS, Azure, and Google Cloud to configure secure architectures and ensure compliance with regulations. They also respond to security incidents and conduct risk assessments.
+                            </div>
+                            <h3>Relevant Subjects</h3>
+                            <div class="subjects-list">
+                                <span>Cloud Security</span>
+                                <span>Network Security</span>
+                            </div>
+                            <h3>Required Skills</h3>
+                            <div class="skills-list">
+                                <span>Cloud Security</span>
+                                <span>AWS/Azure</span>
+                                <span>Risk Assessment</span>
+                                <span>Incident Response</span>
+                            </div>
+                            <h3>Career Path</h3>
+                            <div class="career-path">
+                                <span>Junior Cloud Security Engineer</span>
+                                <i class="fas fa-arrow-right"></i>
+                                <span>Cloud Security Engineer</span>
+                                <i class="fas fa-arrow-right"></i>
+                                <span>Senior Cloud Security Engineer</span>
+                                <i class="fas fa-arrow-right"></i>
+                                <span>Cloud Security Architect</span>
+                            </div>
+                            <h3>Salary Range</h3>
+                            <div class="salary-range">₹7-24 LPA</div>
+                            <h3>Industry Demand</h3>
+                            <div class="industry-demand">
+                                Growing demand in IT and cloud service providers due to the widespread adoption of cloud computing.
+                            </div>
+                            <h3>Companies Providing These Jobs</h3>
+                            <div class="companies-list">
+                                <span>Amazon</span>
+                                <span>Microsoft</span>
+                                <span>Google</span>
+                                <span>Capgemini</span>
+                                <span>Infosys</span>
+                            </div>
+                            <h3>Work Environment</h3>
+                            <div class="work-environment">
+                                Office-based for configuring and monitoring cloud systems, with remote work for incident response and audits.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="job-role-item">
+                        <div class="job-role-title">
+                            Digital Forensics Analyst
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="job-role-details">
+                            <h3>Job Description</h3>
+                            <div class="job-description">
+                                Digital Forensics Analysts investigate cyber incidents by collecting and analyzing digital evidence from devices and networks. They use tools like EnCase and FTK to recover data, trace attack origins, and prepare reports for legal proceedings. They collaborate with law enforcement and organizations to support cybercrime investigations.
+                            </div>
+                            <h3>Relevant Subjects</h3>
+                            <div class="subjects-list">
+                                <span>Digital Forensics</span>
+                                <span>Cryptography</span>
+                            </div>
+                            <h3>Required Skills</h3>
+                            <div class="skills-list">
+                                <span>Digital Forensics</span>
+                                <span>EnCase/FTK</span>
+                                <span>Evidence Analysis</span>
+                                <span>Reporting</span>
+                            </div>
+                            <h3>Career Path</h3>
+                            <div class="career-path">
+                                <span>Junior Forensics Analyst</span>
+                                <i class="fas fa-arrow-right"></i>
+                                <span>Digital Forensics Analyst</span>
+                                <i class="fas fa-arrow-right"></i>
+                                <span>Senior Forensics Analyst</span>
+                                <i class="fas fa-arrow-right"></i>
+                                <span>Forensics Consultant</span>
+                            </div>
+                            <h3>Salary Range</h3>
+                            <div class="salary-range">₹6-20 LPA</div>
+                            <h3>Industry Demand</h3>
+                            <div class="industry-demand">
+                                Increasing demand in law enforcement, government, and corporate sectors due to rising cybercrime rates.
+                            </div>
+                            <h3>Companies Providing These Jobs</h3>
+                            <div class="companies-list">
+                                <span>EY</span>
+                                <span>PwC</span>
+                                <span>Deloitte</span>
+                                <span>Cisco</span>
+                                <span>TCS</span>
+                            </div>
+                            <h3>Work Environment</h3>
+                            <div class="work-environment">
+                                Mix of office-based analysis and fieldwork for evidence collection, with collaboration with legal and security teams.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta">
+        <div class="container">
+            <h2>Start Your Journey in Computer Science (Cybersecurity)</h2>
+            <p>Ready to protect the digital world from cyber threats? Contact our counselors to learn more about the BTech in Computer Science (Cybersecurity).</p>
+            <a href="index.html#contact" class="btn">Contact Us</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h2>EduCareer</h2>
+                    <p>Your guide to educational success</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.html#courses">Courses</a></li>
+                        <li><a href="index.html#about">About Us</a></li>
+                        <li><a href="index.html#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-courses">
+                    <h3>Popular Courses</h3>
+                    <ul>
+                        <li><a href="btech.html">BTech</a></li>
+                        <li><a href="mtech.html">MTech</a></li>
+                        <li><a href="mba.html">MBA</a></li>
+                        <li><a href="medical.html">Medical</a></li>
+                    </ul>
+                </div>
+                <div class="footer-social">
+                    <h3>Follow Us</h3>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 EduCareer. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Job roles accordion functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const jobRoleItems = document.querySelectorAll('.job-role-item');
+            
+            jobRoleItems.forEach(item => {
+                const title = item.querySelector('.job-role-title');
+                
+                title.addEventListener('click', () => {
+                    // Close all other items
+                    jobRoleItems.forEach(otherItem => {
+                        if (otherItem !== item && otherItem.classList.contains('active')) {
+                            otherItem.classList.remove('active');
+                        }
+                    });
+                    
+                    // Toggle current item
+                    item.classList.toggle('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>

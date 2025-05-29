@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MTech in Power Systems - EduCareer</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        /* Reusing styles from previous pages with updates */
+        .course-header {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://img.freepik.com/premium-photo/utilizing-scada-systems-operational-control-industrial-engineering-concept-scada-systems-industrial-engineering-operational-control-automation-data-analytics_918839-252855.jpg');
+            background-size: cover;
+            background-position: center;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+        }
+        
+        .course-details {
+            padding: 80px 0;
+            background-color: #f8f9fa;
+        }
+        
+        .details-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .details-content h2 {
+            color: #4a6bdf;
+            margin-bottom: 20px;
+        }
+        
+        .details-content p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        
+        .details-content ul {
+            list-style-type: disc;
+            padding-left: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .details-content ul li {
+            color: #333;
+            margin-bottom: 10px;
+        }
+        
+        /* Styles for job roles accordion */
+        .job-roles-list {
+            margin-top: 20px;
+        }
+        
+        .job-role-item {
+            margin-bottom: 15px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+        }
+        
+        .job-role-title {
+            padding: 15px;
+            background-color: #fff;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            color: #333;
+        }
+        
+        .job-role-title i {
+            transition: transform 0.3s ease;
+        }
+        
+        .job-role-details {
+            padding: 0 15px;
+            max-height: 0;
+            overflow: hidden;
+            background-color: #f8f9fa;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+        
+        .job-role-item.active .job-role-title i {
+            transform: rotate(180deg);
+        }
+        
+        .job-role-item.active .job-role-details {
+            padding: 15px;
+            max-height: 1200px; /* Adjusted for additional content */
+        }
+        
+        .job-role-details h3 {
+            color: #4a6bdf;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+        
+        .job-role-details .job-description {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        
+        .job-role-details .subjects-list,
+        .job-role-details .skills-list,
+        .job-role-details .companies-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .job-role-details .subjects-list span,
+        .job-role-details .skills-list span,
+        .job-role-details .companies-list span {
+            background-color: #4a6bdf;
+            color: #fff;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+        
+        .job-role-details .career-path {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .job-role-details .career-path span {
+            background-color: #fff;
+            border: 1px solid #4a6bdf;
+            padding: 8px 15px;
+            border-radius: 5px;
+            font-size: 0.9rem;
+        }
+        
+        .job-role-details .career-path i {
+            color: #4a6bdf;
+        }
+        
+        .job-role-details .salary-range {
+            font-weight: 600;
+            color: #333;
+        }
+        
+        .cta {
+            padding: 80px 0;
+            background-color: #4a6bdf;
+            color: #fff;
+            text-align: center;
+        }
+        
+        .cta h2 {
+            margin-bottom: 20px;
+            font-size: 2.5rem;
+        }
+        
+        .cta p {
+            margin-bottom: 30px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            font-size: 1.1rem;
+        }
+        
+        .cta .btn {
+            background-color: #fff;
+            color: #4a6bdf;
+            font-size: 1.1rem;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        
+        .cta .btn:hover {
+            background-color: #f8f9fa;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>EduCareer</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#courses">Courses</a></li>
+                    <li><a href="index.html#about">About Us</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="course-header">
+        <div class="container">
+            <h1>MTech in Power Systems</h1>
+            <p>Master the art of designing and managing efficient power systems</p>
+        </div>
+    </section>
+
+    <section class="course-details">
+        <div class="container">
+            <div class="details-content">
+                <h2>Course Description</h2>
+                <p>The MTech in Power Systems focuses on the design, analysis, and management of electrical power systems, including generation, transmission, distribution, and integration of renewable energy sources. This program provides in-depth knowledge of power system protection, smart grid technology, and energy management, preparing graduates for roles in the energy and power sector.</p>
+                
+                <h2>Relevant Subjects</h2>
+                <ul>
+                    <li>Power System Analysis</li>
+                    <li>High Voltage Engineering</li>
+                    <li>Renewable Energy Systems</li>
+                    <li>Power System Protection</li>
+                    <li>Smart Grid Technology</li>
+                    <li>Electrical Machines and Drives</li>
+                    <li>Energy Management Systems</li>
+                </ul>
+                
+                <h2>Required Skills</h2>
+                <ul>
+                    <li>Proficiency in power system simulation tools (e.g., MATLAB/Simulink, PSS/E, ETAP)</li>
+                    <li>Understanding of power system stability and control</li>
+                    <li>Knowledge of renewable energy integration (solar, wind, etc.)</li>
+                    <li>Familiarity with smart grid technologies and IoT applications</li>
+                    <li>Expertise in high voltage engineering and protection systems</li>
+                    <li>Analytical and problem-solving skills</li>
+                    <li>Project management and teamwork skills</li>
+                </ul>
+                
+                <h2>Job Roles After Completion</h2>
+                <div class="job-roles-list">
+                    <div class="job-role-item">
+                        <div class="job-role-title">
+                            Power Systems Engineer
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="job-role-details">
+                            <h3>Job Description</h3>
+                            <div class="job-description">
+                                Design and analyze power generation, transmission, and distribution systems to ensure reliable and efficient electricity supply.
+                            </div>
+                            <h3>Relevant Subjects</h3>
+                            <div class="subjects-list">
+                                <span>Power System Analysis</span>
+                                <span>Smart Grid Technology</span>
+                            </div>
+                            <h3>Required Skills</h3>
+                            <div class="skills-list">
+                                <span>MATLAB/Simulink</span>
+                                <span>Power System Design</span>
+                                <span>Grid Stability</span>
+                            </div>
+                            <h3>Career Path</h3>
+                            <div class="career-path">
+                                <span>Junior Power Systems Engineer</span>
+                                <i class="fas fa-arrow-right"></i>
+                                <span>Power Systems Engineer</span>
+                                <i class="fas fa-arrow-right"></i>
+                                <span>Senior Power Systems Engineer</span>
+                                <i class="fas fa-arrow-right"></i>
+                                <span>Power Systems Lead</span>
+                            </div>
+                            <h3>Salary Range</h3>
+                            <div class="salary-range">₹7-18 LPA</div>
+                            <h3>Companies Providing These Jobs</h3>
+                            <div class="companies-list">
+                                <span>Siemens</span>
+                                <span>GE Renewable Energy</span>
+                                <span>ABB</span>
+                                <span>Tata Power</span>
+                                <span>Schneider Electric</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="job-role-item">
+                        <div class="job-role-title">
+                            Renewable Energy Engineer
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="job-role-details">
+                            <h3>Job Description</h3>
+                            <div class="job-description">
+                                Integrate renewable energy sources like solar and wind into power systems, optimizing for efficiency and sustainability.
+                            </div>
+                            <h3>Relevant Subjects</h3>
+                            <div class="subjects-list">
+                                <span>Renewable Energy Systems</span>
+                                <span>Energy Management Systems</span>
+                            </div>
+                            <h3>Required Skills</h3>
+                            <div class="skills-list">
+                                <span>Solar/Wind Integration</span>
+                                <span>Energy Storage</span>
+                                <span>System Optimization</span>
+                            </div>
+                            <h3>Career Path</h3>
+                            <div class="career-path">
+                                <span>Junior Renewable Energy Engineer</span>
+                                <i class="fas fa-arrow-right"></i>
+                                <span>Renewable Energy Engineer</span>
+                                <i class="fas fa-arrow-right"></i>
+                                <span>Senior Renewable Energy Engineer</span>
+                                <i class="fas fa-arrow-right"></i>
+                                <span>Renewable Energy Manager</span>
+                            </div>
+                            <h3>Salary Range</h3>
+                            <div class="salary-range">₹8-20 LPA</div>
+                            <h3>Companies Providing These Jobs</h3>
+                            <div class="companies-list">
+                                <span>Adani Green Energy</span>
+                                <span>ReNew Power</span>
+                                <span>Suzlon</span>
+                                <span>Vestas</span>
+                                <span>Azure Power</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="job-role-item">
+                        <div class="job-role-title">
+                            Protection Engineer
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="job-role-details">
+                            <h3>Job Description</h3>
+                            <div class="job-description">
+                                Design and maintain protection systems for power grids to prevent faults and ensure operational safety.
+                            </div>
+                            <h3>Relevant Subjects</h3>
+                            <div class="subjects-list">
+                                <span>Power System Protection</span>
+                                <span>High Voltage Engineering</span>
+                            </div>
+                            <h3>Required Skills</h3>
+                            <div class="skills-list">
+                                <span>Relay Coordination</span>
+                                <span>Fault Analysis</span>
+                                <span>ETAP</span>
+                            </div>
+                            <h3>Career Path</h3>
+                            <div class="career-path">
+                                <span>Junior Protection Engineer</span>
+                                <i class="fas fa-arrow-right"></i>
+                                <span>Protection Engineer</span>
+                                <i class="fas fa-arrow-right"></i>
+                                <span>Senior Protection Engineer</span>
+                                <i class="fas fa-arrow-right"></i>
+                                <span>Protection Systems Specialist</span>
+                            </div>
+                            <h3>Salary Range</h3>
+                            <div class="salary-range">₹7-16 LPA</div>
+                            <h3>Companies Providing These Jobs</h3>
+                            <div class="companies-list">
+                                <span>Alstom</span>
+                                <span>L&T Electrical & Automation</span>
+                                <span>BHEL</span>
+                                <span>Power Grid Corporation</span>
+                                <span>Eaton</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="job-role-item">
+                        <div class="job-role-title">
+                            Smart Grid Engineer
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="job-role-details">
+                            <h3>Job Description</h3>
+                            <div class="job-description">
+                                Develop and implement smart grid technologies to enhance power system efficiency, reliability, and automation.
+                            </div>
+                            <h3>Relevant Subjects</h3>
+                            <div class="subjects-list">
+                                <span>Smart Grid Technology</span>
+                                <span>Energy Management Systems</span>
+                            </div>
+                            <h3>Required Skills</h3>
+                            <div class="skills-list">
+                                <span>IoT Integration</span>
+                                <span>Smart Grid Design</span>
+                                <span>Data Analytics</span>
+                            </div>
+                            <h3>Career Path</h3>
+                            <div class="career-path">
+                                <span>Junior Smart Grid Engineer</span>
+                                <i class="fas fa-arrow-right"></i>
+                                <span>Smart Grid Engineer</span>
+                                <i class="fas fa-arrow-right"></i>
+                                <span>Senior Smart Grid Engineer</span>
+                                <i class="fas fa-arrow-right"></i>
+                                <span>Smart Grid Architect</span>
+                            </div>
+                            <h3>Salary Range</h3>
+                            <div class="salary-range">₹8-22 LPA</div>
+                            <h3>Companies Providing These Jobs</h3>
+                            <div class="companies-list">
+                                <span>Cisco</span>
+                                <span>IBM</span>
+                                <span>Honeywell</span>
+                                <span>NTPC</span>
+                                <span>Itron</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="job-role-item">
+                        <div class="job-role-title">
+                            High Voltage Engineer
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="job-role-details">
+                            <h3>Job Description</h3>
+                            <div class="job-description">
+                                Design and test high voltage equipment and systems for safe and efficient power transmission over long distances.
+                            </div>
+                            <h3>Relevant Subjects</h3>
+                            <div class="subjects-list">
+                                <span>High Voltage Engineering</span>
+                                <span>Power System Analysis</span>
+                            </div>
+                            <h3>Required Skills</h3>
+                            <div class="skills-list">
+                                <span>High Voltage Testing</span>
+                                <span>Insulation Design</span>
+                                <span>PSS/E</span>
+                            </div>
+                            <h3>Career Path</h3>
+                            <div class="career-path">
+                                <span>Junior High Voltage Engineer</span>
+                                <i class="fas fa-arrow-right"></i>
+                                <span>High Voltage Engineer</span>
+                                <i class="fas fa-arrow-right"></i>
+                                <span>Senior High Voltage Engineer</span>
+                                <i class="fas fa-arrow-right"></i>
+                                <span>High Voltage Specialist</span>
+                            </div>
+                            <h3>Salary Range</h3>
+                            <div class="salary-range">₹7-18 LPA</div>
+                            <h3>Companies Providing These Jobs</h3>
+                            <div class="companies-list">
+                                <span>Hitachi Energy</span>
+                                <span>Crompton Greaves</span>
+                                <span>Toshiba</span>
+                                <span>PGCIL</span>
+                                <span>Hyundai Electric</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="job-role-item">
+                        <div class="job-role-title">
+                            Energy Management Specialist
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="job-role-details">
+                            <h3>Job Description</h3>
+                            <div class="job-description">
+                                Optimize energy usage in power systems, focusing on efficiency, cost reduction, and sustainable practices.
+                            </div>
+                            <h3>Relevant Subjects</h3>
+                            <div class="subjects-list">
+                                <span>Energy Management Systems</span>
+                                <span>Renewable Energy Systems</span>
+                            </div>
+                            <h3>Required Skills</h3>
+                            <div class="skills-list">
+                                <span>Energy Auditing</span>
+                                <span>System Optimization</span>
+                                <span>Data Analysis</span>
+                            </div>
+                            <h3>Career Path</h3>
+                            <div class="career-path">
+                                <span>Junior Energy Specialist</span>
+                                <i class="fas fa-arrow-right"></i>
+                                <span>Energy Management Specialist</span>
+                                <i class="fas fa-arrow-right"></i>
+                                <span>Senior Energy Specialist</span>
+                                <i class="fas fa-arrow-right"></i>
+                                <span>Energy Manager</span>
+                            </div>
+                            <h3>Salary Range</h3>
+                            <div class="salary-range">₹8-20 LPA</div>
+                            <h3>Companies Providing These Jobs</h3>
+                            <div class="companies-list">
+                                <span>Schneider Electric</span>
+                                <span>Emerson</span>
+                                <span>Larsen & Toubro</span>
+                                <span>ONGC</span>
+                                <span>BPCL</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="job-role-item">
+                        <div class="job-role-title">
+                            Electrical Design Engineer
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="job-role-details">
+                            <h3>Job Description</h3>
+                            <div class="job-description">
+                                Create electrical designs for power systems, ensuring compliance with safety and performance standards.
+                            </div>
+                            <h3>Relevant Subjects</h3>
+                            <div class="subjects-list">
+                                <span>Power System Analysis</span>
+                                <span>Electrical Machines and Drives</span>
+                            </div>
+                            <h3>Required Skills</h3>
+                            <div class="skills-list">
+                                <span>AutoCAD Electrical</span>
+                                <span>System Design</span>
+                                <span>Standards Compliance</span>
+                            </div>
+                            <h3>Career Path</h3>
+                            <div class="career-path">
+                                <span>Junior Electrical Design Engineer</span>
+                                <i class="fas fa-arrow-right"></i>
+                                <span>Electrical Design Engineer</span>
+                                <i class="fas fa-arrow-right"></i>
+                                <span>Senior Electrical Design Engineer</span>
+                                <i class="fas fa-arrow-right"></i>
+                                <span>Design Manager</span>
+                            </div>
+                            <h3>Salary Range</h3>
+                            <div class="salary-range">₹6-15 LPA</div>
+                            <h3>Companies Providing These Jobs</h3>
+                            <div class="companies-list">
+                                <span>Havells</span>
+                                <span>Legrand</span>
+                                <span>Polycab</span>
+                                <span>Reliance Energy</span>
+                                <span>Delta Electronics</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="job-role-item">
+                        <div class="job-role-title">
+                            Power System Consultant
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="job-role-details">
+                            <h3>Job Description</h3>
+                            <div class="job-description">
+                                Provide expert advice on power system design, operation, and modernization to improve efficiency and reliability.
+                            </div>
+                            <h3>Relevant Subjects</h3>
+                            <div class="subjects-list">
+                                <span>Power System Protection</span>
+                                <span>Smart Grid Technology</span>
+                            </div>
+                            <h3>Required Skills</h3>
+                            <div class="skills-list">
+                                <span>Consulting Skills</span>
+                                <span>Risk Assessment</span>
+                                <span>Client Communication</span>
+                            </div>
+                            <h3>Career Path</h3>
+                            <div class="career-path">
+                                <span>Junior Consultant</span>
+                                <i class="fas fa-arrow-right"></i>
+                                <span>Power System Consultant</span>
+                                <i class="fas fa-arrow-right"></i>
+                                <span>Senior Consultant</span>
+                                <i class="fas fa-arrow-right"></i>
+                                <span>Principal Consultant</span>
+                            </div>
+                            <h3>Salary Range</h3>
+                            <div class="salary-range">₹9-25 LPA</div>
+                            <h3>Companies Providing These Jobs</h3>
+                            <div class="companies-list">
+                                <span>Deloitte (Energy Consulting)</span>
+                                <span>EY</span>
+                                <span>PwC</span>
+                                <span>McKinsey & Company</span>
+                                <span>BCG</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta">
+        <div class="container">
+            <h2>Start Your Journey in Power Systems</h2>
+            <p>Ready to dive into the world of designing and managing efficient power systems? Contact our counselors to learn more about the MTech in Power Systems.</p>
+            <a href="index.html#contact" class="btn">Contact Us</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h2>EduCareer</h2>
+                    <p>Your guide to educational success</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.html#courses">Courses</a></li>
+                        <li><a href="index.html#about">About Us</a></li>
+                        <li><a href="index.html#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-courses">
+                    <h3>Popular Courses</h3>
+                    <ul>
+                        <li><a href="btech.html">BTech</a></li>
+                        <li><a href="mtech.html">MTech</a></li>
+                        <li><a href="mba.html">MBA</a></li>
+                        <li><a href="medical.html">Medical</a></li>
+                    </ul>
+                </div>
+                <div class="footer-social">
+                    <h3>Follow Us</h3>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2023 EduCareer. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Job roles accordion functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const jobRoleItems = document.querySelectorAll('.job-role-item');
+            
+            jobRoleItems.forEach(item => {
+                const title = item.querySelector('.job-role-title');
+                
+                title.addEventListener('click', () => {
+                    // Close all other items
+                    jobRoleItems.forEach(otherItem => {
+                        if (otherItem !== item && otherItem.classList.contains('active')) {
+                            otherItem.classList.remove('active');
+                        }
+                    });
+                    
+                    // Toggle current item
+                    item.classList.toggle('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
