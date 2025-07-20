@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BTech in Civil Engineering - EduCareer</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        .course-header {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://www.procore.com/jobsite/wp-content/uploads/2020/07/iStock-1157332392.jpg');
+            background-size: cover;
+            background-position: center;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+        }
+        
+        .course-details {
+            padding: 80px 0;
+            background-color: #f8f9fa;
+        }
+        
+        .details-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .details-content h2 {
+            color: #4a6bdf;
+            margin-bottom: 20px;
+        }
+        
+        .details-content p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        
+        .details-content ul {
+            list-style-type: disc;
+            padding-left: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .details-content ul li {
+            color: #333;
+            margin-bottom: 10px;
+        }
+        
+        .job-roles-list {
+            margin-top: 20px;
+        }
+        
+        .job-role-item {
+            margin-bottom: 15px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+        }
+        
+        .job-role-title {
+            padding: 15px;
+            background-color: #fff;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            color: #333;
+        }
+        
+        .job-role-title i {
+            transition: transform 0.3s ease;
+        }
+        
+        .job-role-details {
+            padding: 0 15px;
+            max-height: 0;
+            overflow: hidden;
+            background-color: #f8f9fa;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+        
+        .job-role-item.active .job-role-title i {
+            transform: rotate(180deg);
+        }
+        
+        .job-role-item.active .job-role-details {
+            padding: 15px;
+            max-height: 1200px;
+        }
+        
+        .job-role-details h3 {
+            color: #4a6bdf;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+        
+        .job-role-details .job-description {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        
+        .job-role-details .subjects-list,
+        .job-role-details .skills-list,
+        .job-role-details .companies-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .job-role-details .subjects-list span,
+        .job-role-details .skills-list span,
+        .job-role-details .companies-list span {
+            background-color: #4a6bdf;
+            color: #fff;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+        
+        .job-role-details .career-path {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .job-role-details .career-path span {
+            background-color: #fff;
+            border: 1px solid #4a6bdf;
+            padding: 8px 15px;
+            border-radius: 5px;
+            font-size: 0.9rem;
+        }
+        
+        .job-role-details .career-path i {
+            color: #4a6bdf;
+        }
+        
+        .job-role-details .salary-range {
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        
+        .job-role-details .industry-demand,
+        .job-role-details .work-environment {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        
+        .cta {
+            padding: 80px 0;
+            background-color: #4a6bdf;
+            color: #fff;
+            text-align: center;
+        }
+        
+        .cta h2 {
+            margin-bottom: 20px;
+            font-size: 2.5rem;
+        }
+        
+        .cta p {
+            margin-bottom: 30px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            font-size: 1.1rem;
+        }
+        
+        .cta .btn {
+            background-color: #fff;
+            color: #4a6bdf;
+            font-size: 1.1rem;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        
+        .cta .btn:hover {
+            background-color: #f8f9fa;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>EduCareer</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#courses">Courses</a></li>
+                    <li><a href="index.html#about">About Us</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="course-header">
+        <div class="container">
+            <h1>BTech in Civil Engineering</h1>
+            <p>Shape the world with innovative infrastructure and sustainable designs</p>
+        </div>
+    </section>
+
+    <section class="course-details">
+        <div class="container">
+            <div class="details-content">
+                <h2>Course Description</h2>
+                <p>Civil Engineering focuses on the design, construction, and maintenance of infrastructure such as buildings, roads, bridges, and water systems. It equips students with the skills to create sustainable and resilient structures that meet societal needs.</p>
+                
+                <h2>Relevant Subjects</h2>
+                <ul>
+                    <li>Structural Analysis</li>
+                    <li>Geotechnical Engineering</li>
+                    <li>Transportation Engineering</li>
+                    <li>Environmental Engineering</li>
+                    <li>Construction Management</li>
+                    <li>Hydraulics and Water Resources</li>
+                </ul>
+                
+                <h2>Required Skills</h2>
+                <ul>
+                    <li>Structural Design (AutoCAD, STAAD.Pro)</li>
+                    <li>Project Management</li>
+                    <li>Geotechnical Analysis</li>
+                    <li>Surveying Techniques</li>
+                    <li>Environmental Impact Assessment</li>
+                    <li>Problem Solving</li>
+                    <li>Team Collaboration</li>
+                </ul>
+                
+                <h2>Job Roles After Completion</h2>
+                <div class="job-roles-list">
+                    <div class="job-role-item">
+                        <div class="job-role-title">
+                            Structural Engineer
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="job-role-details">
+                            <h3>Job Description</h3>
+                            <div class="job-description">
+                                Structural Engineers design and analyze buildings, bridges, and other structures to ensure they are safe, stable, and capable of withstanding environmental loads. They use software like AutoCAD and STAAD.Pro to create detailed designs, perform calculations for load-bearing capacities, and ensure compliance with building codes. They collaborate with architects and construction teams to oversee the implementation of their designs and address any structural issues during construction.
+                            </div>
+                            <h3>Relevant Subjects</h3>
+                            <div class="subjects-list">
+                                <span>Structural Analysis</span>
+                                <span>Construction Management</span>
+                            </div>
+                            <h3>Required Skills</h3>
+                            <div class="skills-list">
+                                <span>AutoCAD</span>
+                                <span>STAAD.Pro</span>
+                                <span>Structural Design</span>
+                                <span>Building Codes</span>
+                            </div>
+                            <h3>Career Path</h3>
+                            <div class="career-path">
+                                <span>Junior Structural Engineer</span>
+                                <i class="fas fa-arrow-right"></i>
+                                <span>Structural Engineer</span>
+                                <i class="fas fa-arrow-right"></i>
+                                <span>Senior Structural Engineer</span>
+                                <i class="fas fa-arrow-right"></i>
+                                <span>Structural Consultant</span>
+                            </div>
+                            <h3>Salary Range</h3>
+                            <div class="salary-range">₹6-25 LPA</div>
+                            <h3>Industry Demand</h3>
+                            <div class="industry-demand">
+                                High demand in construction, real estate, and infrastructure development due to ongoing urbanization and infrastructure projects.
+                            </div>
+                            <h3>Companies Providing These Jobs</h3>
+                            <div class="companies-list">
+                                <span>L&T Construction</span>
+                                <span>Tata Projects</span>
+                                <span>AECOM</span>
+                                <span>Jacobs</span>
+                                <span>DLF</span>
+                            </div>
+                            <h3>Work Environment</h3>
+                            <div class="work-environment">
+                                Work in offices for design and planning, with frequent site visits to monitor construction progress. Collaboration with architects and contractors is common.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="job-role-item">
+                        <div class="job-role-title">
+                            Geotechnical Engineer
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="job-role-details">
+                            <h3>Job Description</h3>
+                            <div class="job-description">
+                                Geotechnical Engineers analyze soil, rock, and groundwater conditions to ensure the stability of construction projects like foundations, tunnels, and dams. They conduct site investigations, perform tests to assess soil properties, and provide recommendations for foundation designs. They also evaluate risks like landslides or earthquakes and collaborate with project teams to ensure safe construction practices.
+                            </div>
+                            <h3>Relevant Subjects</h3>
+                            <div class="subjects-list">
+                                <span>Geotechnical Engineering</span>
+                                <span>Hydraulics and Water Resources</span>
+                            </div>
+                            <h3>Required Skills</h3>
+                            <div class="skills-list">
+                                <span>Soil Mechanics</span>
+                                <span>Site Investigation</span>
+                                <span>Geotechnical Software</span>
+                                <span>Risk Assessment</span>
+                            </div>
+                            <h3>Career Path</h3>
+                            <div class="career-path">
+                                <span>Junior Geotechnical Engineer</span>
+                                <i class="fas fa-arrow-right"></i>
+                                <span>Geotechnical Engineer</span>
+                                <i class="fas fa-arrow-right"></i>
+                                <span>Senior Geotechnical Engineer</span>
+                                <i class="fas fa-arrow-right"></i>
+                                <span>Geotechnical Consultant</span>
+                            </div>
+                            <h3>Salary Range</h3>
+                            <div class="salary-range">₹5-20 LPA</div>
+                            <h3>Industry Demand</h3>
+                            <div class="industry-demand">
+                                Strong demand in infrastructure, mining, and energy sectors, especially for large-scale projects like highways and dams.
+                            </div>
+                            <h3>Companies Providing These Jobs</h3>
+                            <div class="companies-list">
+                                <span>L&T Geostructure</span>
+                                <span>GMR Group</span>
+                                <span>Fugro</span>
+                                <span>Arcadis</span>
+                                <span>Shapoorji Pallonji</span>
+                            </div>
+                            <h3>Work Environment</h3>
+                            <div class="work-environment">
+                                Combination of fieldwork for site investigations and office work for analysis and reporting. May involve travel to remote project sites.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="job-role-item">
+                        <div class="job-role-title">
+                            Transportation Engineer
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="job-role-details">
+                            <h3>Job Description</h3>
+                            <div class="job-description">
+                                Transportation Engineers plan, design, and maintain transportation systems such as roads, highways, railways, and airports. They analyze traffic patterns, design efficient roadways, and ensure safety and sustainability in transportation infrastructure. They also use software for traffic modeling and collaborate with urban planners to integrate transport systems into city designs.
+                            </div>
+                            <h3>Relevant Subjects</h3>
+                            <div class="subjects-list">
+                                <span>Transportation Engineering</span>
+                                <span>Surveying</span>
+                            </div>
+                            <h3>Required Skills</h3>
+                            <div class="skills-list">
+                                <span>Traffic Analysis</span>
+                                <span>Road Design</span>
+                                <span>CAD Software</span>
+                                <span>Urban Planning</span>
+                            </div>
+                            <h3>Career Path</h3>
+                            <div class="career-path">
+                                <span>Junior Transportation Engineer</span>
+                                <i class="fas fa-arrow-right"></i>
+                                <span>Transportation Engineer</span>
+                                <i class="fas fa-arrow-right"></i>
+                                <span>Senior Transportation Engineer</span>
+                                <i class="fas fa-arrow-right"></i>
+                                <span>Transportation Planner</span>
+                            </div>
+                            <h3>Salary Range</h3>
+                            <div class="salary-range">₹6-22 LPA</div>
+                            <h3>Industry Demand</h3>
+                            <div class="industry-demand">
+                                Growing demand due to urban expansion and government investments in transportation infrastructure like smart cities and metro projects.
+                            </div>
+                            <h3>Companies Providing These Jobs</h3>
+                            <div class="companies-list">
+                                <span>L&T Infrastructure</span>
+                                <span>Adani Group</span>
+                                <span>AECOM</span>
+                                <span>WSP</span>
+                                <span>DMRC</span>
+                            </div>
+                            <h3>Work Environment</h3>
+                            <div class="work-environment">
+                                Mix of office-based design work and site visits to monitor construction and traffic conditions. Collaboration with government agencies is common.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="job-role-item">
+                        <div class="job-role-title">
+                            Construction Project Manager
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="job-role-details">
+                            <h3>Job Description</h3>
+                            <div class="job-description">
+                                Construction Project Managers oversee the planning, coordination, and execution of construction projects, ensuring they are completed on time, within budget, and to quality standards. They manage resources, coordinate with contractors and suppliers, and ensure compliance with safety and regulatory standards. They also handle project scheduling, budgeting, and risk management using tools like Primavera or MS Project.
+                            </div>
+                            <h3>Relevant Subjects</h3>
+                            <div class="subjects-list">
+                                <span>Construction Management</span>
+                                <span>Structural Analysis</span>
+                            </div>
+                            <h3>Required Skills</h3>
+                            <div class="skills-list">
+                                <span>Project Management</span>
+                                <span>Budgeting</span>
+                                <span>Scheduling</span>
+                                <span>Leadership</span>
+                            </div>
+                            <h3>Career Path</h3>
+                            <div class="career-path">
+                                <span>Site Engineer</span>
+                                <i class="fas fa-arrow-right"></i>
+                                <span>Construction Project Manager</span>
+                                <i class="fas fa-arrow-right"></i>
+                                <span>Senior Project Manager</span>
+                                <i class="fas fa-arrow-right"></i>
+                                <span>Program Manager</span>
+                            </div>
+                            <h3>Salary Range</h3>
+                            <div class="salary-range">₹8-30 LPA</div>
+                            <h3>Industry Demand</h3>
+                            <div class="industry-demand">
+                                High demand in construction, real estate, and infrastructure sectors due to large-scale projects and urban development.
+                            </div>
+                            <h3>Companies Providing These Jobs</h3>
+                            <div class="companies-list">
+                                <span>L&T Construction</span>
+                                <span>Tata Projects</span>
+                                <span>Shapoorji Pallonji</span>
+                                <span>HCC</span>
+                                <span>Godrej Properties</span>
+                            </div>
+                            <h3>Work Environment</h3>
+                            <div class="work-environment">
+                                Work on construction sites and in offices, managing teams and coordinating with stakeholders. The role may involve high-pressure situations to meet deadlines.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="job-role-item">
+                        <div class="job-role-title">
+                            Environmental Engineer
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="job-role-details">
+                            <h3>Job Description</h3>
+                            <div class="job-description">
+                                Environmental Engineers address environmental challenges in construction projects, focusing on sustainable practices and regulatory compliance. They design systems for waste management, water treatment, and pollution control, and conduct environmental impact assessments for projects. They also ensure compliance with environmental regulations and collaborate with project teams to implement green technologies.
+                            </div>
+                            <h3>Relevant Subjects</h3>
+                            <div class="subjects-list">
+                                <span>Environmental Engineering</span>
+                                <span>Hydraulics and Water Resources</span>
+                            </div>
+                            <h3>Required Skills</h3>
+                            <div class="skills-list">
+                                <span>Environmental Impact Assessment</span>
+                                <span>Waste Management</span>
+                                <span>Water Treatment</span>
+                                <span>Regulatory Compliance</span>
+                            </div>
+                            <h3>Career Path</h3>
+                            <div class="career-path">
+                                <span>Junior Environmental Engineer</span>
+                                <i class="fas fa-arrow-right"></i>
+                                <span>Environmental Engineer</span>
+                                <i class="fas fa-arrow-right"></i>
+                                <span>Senior Environmental Engineer</span>
+                                <i class="fas fa-arrow-right"></i>
+                                <span>Environmental Consultant</span>
+                            </div>
+                            <h3>Salary Range</h3>
+                            <div class="salary-range">₹5-18 LPA</div>
+                            <h3>Industry Demand</h3>
+                            <div class="industry-demand">
+                                Increasing demand due to growing emphasis on sustainability and environmental regulations in construction and infrastructure projects.
+                            </div>
+                            <h3>Companies Providing These Jobs</h3>
+                            <div class="companies-list">
+                                <span>AECOM</span>
+                                <span>Arcadis</span>
+                                <span>ERM</span>
+                                <span>L&T Construction</span>
+                                <span>GMR Group</span>
+                            </div>
+                            <h3>Work Environment</h3>
+                            <div class="work-environment">
+                                Work in offices for planning and analysis, with fieldwork for site assessments and project monitoring. Collaboration with government and regulatory bodies is common.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta">
+        <div class="container">
+            <h2>Start Your Journey in Civil Engineering</h2>
+            <p>Ready to build the future of infrastructure? Contact our counselors to learn more about the BTech in Civil Engineering.</p>
+            <a href="index.html#contact" class="btn">Contact Us</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h2>EduCareer</h2>
+                    <p>Your guide to educational success</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.html#courses">Courses</a></li>
+                        <li><a href="index.html#about">About Us</a></li>
+                        <li><a href="index.html#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-courses">
+                    <h3>Popular Courses</h3>
+                    <ul>
+                        <li><a href="btech.html">BTech</a></li>
+                        <li><a href="mtech.html">MTech</a></li>
+                        <li><a href="mba.html">MBA</a></li>
+                        <li><a href="medical.html">Medical</a></li>
+                    </ul>
+                </div>
+                <div class="footer-social">
+                    <h3>Follow Us</h3>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 EduCareer. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Job roles accordion functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const jobRoleItems = document.querySelectorAll('.job-role-item');
+            
+            jobRoleItems.forEach(item => {
+                const title = item.querySelector('.job-role-title');
+                
+                title.addEventListener('click', () => {
+                    // Close all other items
+                    jobRoleItems.forEach(otherItem => {
+                        if (otherItem !== item && otherItem.classList.contains('active')) {
+                            otherItem.classList.remove('active');
+                        }
+                    });
+                    
+                    // Toggle current item
+                    item.classList.toggle('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BTech in Artificial Intelligence and Machine Learning - EduCareer</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        .course-header {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://img.freepik.com/premium-photo/xai-futuristic-robot-artificial-intelligence-concept_31965-347824.jpg');
+            background-size: cover;
+            background-position: center;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+        }
+        
+        .course-details {
+            padding: 80px 0;
+            background-color: #f8f9fa;
+        }
+        
+        .details-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .details-content h2 {
+            color: #4a6bdf;
+            margin-bottom: 20px;
+        }
+        
+        .details-content p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        
+        .details-content ul {
+            list-style-type: disc;
+            padding-left: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .details-content ul li {
+            color: #333;
+            margin-bottom: 10px;
+        }
+        
+        .job-roles-list {
+            margin-top: 20px;
+        }
+        
+        .job-role-item {
+            margin-bottom: 15px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+        }
+        
+        .job-role-title {
+            padding: 15px;
+            background-color: #fff;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            color: #333;
+        }
+        
+        .job-role-title i {
+            transition: transform 0.3s ease;
+        }
+        
+        .job-role-details {
+            padding: 0 15px;
+            max-height: 0;
+            overflow: hidden;
+            background-color: #f8f9fa;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+        
+        .job-role-item.active .job-role-title i {
+            transform: rotate(180deg);
+        }
+        
+        .job-role-item.active .job-role-details {
+            padding: 15px;
+            max-height: 1200px;
+        }
+        
+        .job-role-details h3 {
+            color: #4a6bdf;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+        
+        .job-role-details .job-description {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        
+        .job-role-details .subjects-list,
+        .job-role-details .skills-list,
+        .job-role-details .companies-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .job-role-details .subjects-list span,
+        .job-role-details .skills-list span,
+        .job-role-details .companies-list span {
+            background-color: #4a6bdf;
+            color: #fff;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+        
+        .job-role-details .career-path {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .job-role-details .career-path span {
+            background-color: #fff;
+            border: 1px solid #4a6bdf;
+            padding: 8px 15px;
+            border-radius: 5px;
+            font-size: 0.9rem;
+        }
+        
+        .job-role-details .career-path i {
+            color: #4a6bdf;
+        }
+        
+        .job-role-details .salary-range {
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        
+        .job-role-details .industry-demand,
+        .job-role-details .work-environment {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        
+        .cta {
+            padding: 80px 0;
+            background-color: #4a6bdf;
+            color: #fff;
+            text-align: center;
+        }
+        
+        .cta h2 {
+            margin-bottom: 20px;
+            font-size: 2.5rem;
+        }
+        
+        .cta p {
+            margin-bottom: 30px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            font-size: 1.1rem;
+        }
+        
+        .cta .btn {
+            background-color: #fff;
+            color: #4a6bdf;
+            font-size: 1.1rem;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        
+        .cta .btn:hover {
+            background-color: #f8f9fa;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>EduCareer</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#courses">Courses</a></li>
+                    <li><a href="index.html#about">About Us</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="course-header">
+        <div class="container">
+            <h1>BTech in Artificial Intelligence and Machine Learning</h1>
+            <p>Shape the future with intelligent systems and advanced data-driven solutions</p>
+        </div>
+    </section>
+
+    <section class="course-details">
+        <div class="container">
+            <div class="details-content">
+                <h2>Course Description</h2>
+                <p>BTech in Artificial Intelligence and Machine Learning (AI & ML) focuses on developing intelligent systems that can learn, reason, and make decisions. This field equips students with skills to design algorithms, build predictive models, and implement AI solutions for industries such as healthcare, finance, automotive, and technology.</p>
+                
+                <h2>Relevant Subjects</h2>
+                <ul>
+                    <li>Machine Learning</li>
+                    <li>Deep Learning</li>
+                    <li>Data Science</li>
+                    <li>Natural Language Processing</li>
+                    <li>Computer Vision</li>
+                    <li>AI Ethics and Governance</li>
+                </ul>
+                
+                <h2>Required Skills</h2>
+                <ul>
+                    <li>Programming (Python, R)</li>
+                    <li>Data Analysis</li>
+                    <li>Neural Networks</li>
+                    <li>Cloud Computing (AWS, Azure)</li>
+                    <li>Algorithm Design</li>
+                    <li>Problem Solving</li>
+                    <li>Team Collaboration</li>
+                </ul>
+                
+                <h2>Job Roles After Completion</h2>
+                <div class="job-roles-list">
+                    <div class="job-role-item">
+                        <div class="job-role-title">
+                            Machine Learning Engineer
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="job-role-details">
+                            <h3>Job Description</h3>
+                            <div class="job-description">
+                                Machine Learning Engineers design and implement machine learning models to solve business problems. They use tools like TensorFlow and PyTorch to build, train, and deploy models, optimizing them for accuracy and scalability. They collaborate with data scientists and software engineers to integrate ML solutions into applications.
+                            </div>
+                            <h3>Relevant Subjects</h3>
+                            <div class="subjects-list">
+                                <span>Machine Learning</span>
+                                <span>Data Science</span>
+                            </div>
+                            <h3>Required Skills</h3>
+                            <div class="skills-list">
+                                <span>Python</span>
+                                <span>TensorFlow</span>
+                                <span>PyTorch</span>
+                                <span>Model Optimization</span>
+                            </div>
+                            <h3>Career Path</h3>
+                            <div class="career-path">
+                                <span>Junior ML Engineer</span>
+                                <i class="fas fa-arrow-right"></i>
+                                <span>Machine Learning Engineer</span>
+                                <i class="fas fa-arrow-right"></i>
+                                <span>Senior ML Engineer</span>
+                                <i class="fas fa-arrow-right"></i>
+                                <span>ML Architect</span>
+                            </div>
+                            <h3>Salary Range</h3>
+                            <div class="salary-range">₹8-25 LPA</div>
+                            <h3>Industry Demand</h3>
+                            <div class="industry-demand">
+                                High demand in tech, finance, and healthcare due to the growing adoption of AI-driven solutions.
+                            </div>
+                            <h3>Companies Providing These Jobs</h3>
+                            <div class="companies-list">
+                                <span>Google</span>
+                                <span>Amazon</span>
+                                <span>Microsoft</span>
+                                <span>IBM</span>
+                                <span>Infosys</span>
+                            </div>
+                            <h3>Work Environment</h3>
+                            <div class="work-environment">
+                                Office-based for model development and testing, with collaboration with data and engineering teams for deployment.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="job-role-item">
+                        <div class="job-role-title">
+                            Data Scientist
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="job-role-details">
+                            <h3>Job Description</h3>
+                            <div class="job-description">
+                                Data Scientists analyze large datasets to extract insights and build predictive models using statistical and machine learning techniques. They use tools like Python, R, and SQL to process data and create visualizations. They work with business teams to drive data-driven decision-making.
+                            </div>
+                            <h3>Relevant Subjects</h3>
+                            <div class="subjects-list">
+                                <span>Data Science</span>
+                                <span>Machine Learning</span>
+                            </div>
+                            <h3>Required Skills</h3>
+                            <div class="skills-list">
+                                <span>Python/R</span>
+                                <span>SQL</span>
+                                <span>Data Visualization</span>
+                                <span>Statistical Analysis</span>
+                            </div>
+                            <h3>Career Path</h3>
+                            <div class="career-path">
+                                <span>Junior Data Scientist</span>
+                                <i class="fas fa-arrow-right"></i>
+                                <span>Data Scientist</span>
+                                <i class="fas fa-arrow-right"></i>
+                                <span>Senior Data Scientist</span>
+                                <i class="fas fa-arrow-right"></i>
+                                <span>Chief Data Scientist</span>
+                            </div>
+                            <h3>Salary Range</h3>
+                            <div class="salary-range">₹7-22 LPA</div>
+                            <h3>Industry Demand</h3>
+                            <div class="industry-demand">
+                                Strong demand in e-commerce, finance, and healthcare due to the need for data-driven strategies.
+                            </div>
+                            <h3>Companies Providing These Jobs</h3>
+                            <div class="companies-list">
+                                <span>Amazon</span>
+                                <span>Flipkart</span>
+                                <span>Accenture</span>
+                                <span>TCS</span>
+                                <span>Walmart</span>
+                            </div>
+                            <h3>Work Environment</h3>
+                            <div class="work-environment">
+                                Primarily office-based for data analysis and model building, with collaboration with business and tech teams.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="job-role-item">
+                        <div class="job-role-title">
+                            AI Research Scientist
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="job-role-details">
+                            <h3>Job Description</h3>
+                            <div class="job-description">
+                                AI Research Scientists conduct cutting-edge research to advance AI and ML algorithms. They develop new models, publish papers, and contribute to open-source projects. They use frameworks like TensorFlow and PyTorch and collaborate with academic and industry teams to push the boundaries of AI.
+                            </div>
+                            <h3>Relevant Subjects</h3>
+                            <div class="subjects-list">
+                                <span>Deep Learning</span>
+                                <span>AI Ethics and Governance</span>
+                            </div>
+                            <h3>Required Skills</h3>
+                            <div class="skills-list">
+                                <span>Algorithm Design</span>
+                                <span>TensorFlow</span>
+                                <span>PyTorch</span>
+                                <span>Research Publication</span>
+                            </div>
+                            <h3>Career Path</h3>
+                            <div class="career-path">
+                                <span>Junior AI Researcher</span>
+                                <i class="fas fa-arrow-right"></i>
+                                <span>AI Research Scientist</span>
+                                <i class="fas fa-arrow-right"></i>
+                                <span>Senior AI Researcher</span>
+                                <i class="fas fa-arrow-right"></i>
+                                <span>AI Research Lead</span>
+                            </div>
+                            <h3>Salary Range</h3>
+                            <div class="salary-range">₹10-30 LPA</div>
+                            <h3>Industry Demand</h3>
+                            <div class="industry-demand">
+                                High demand in tech giants and research institutions due to the need for innovative AI solutions.
+                            </div>
+                            <h3>Companies Providing These Jobs</h3>
+                            <div class="companies-list">
+                                <span>Google</span>
+                                <span>Microsoft</span>
+                                <span>DeepMind</span>
+                                <span>NVIDIA</span>
+                                <span>Meta AI</span>
+                            </div>
+                            <h3>Work Environment</h3>
+                            <div class="work-environment">
+                                Mix of office-based research and lab work for experimentation, with collaboration with global research teams.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="job-role-item">
+                        <div class="job-role-title">
+                            Computer Vision Engineer
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="job-role-details">
+                            <h3>Job Description</h3>
+                            <div class="job-description">
+                                Computer Vision Engineers develop algorithms and models to enable machines to interpret visual data, such as images and videos. They use tools like OpenCV and TensorFlow to build applications for facial recognition, autonomous vehicles, and medical imaging. They collaborate with product teams to integrate vision solutions.
+                            </div>
+                            <h3>Relevant Subjects</h3>
+                            <div class="subjects-list">
+                                <span>Computer Vision</span>
+                                <span>Deep Learning</span>
+                            </div>
+                            <h3>Required Skills</h3>
+                            <div class="skills-list">
+                                <span>OpenCV</span>
+                                <span>TensorFlow</span>
+                                <span>Image Processing</span>
+                                <span>Model Deployment</span>
+                            </div>
+                            <h3>Career Path</h3>
+                            <div class="career-path">
+                                <span>Junior Computer Vision Engineer</span>
+                                <i class="fas fa-arrow-right"></i>
+                                <span>Computer Vision Engineer</span>
+                                <i class="fas fa-arrow-right"></i>
+                                <span>Senior Computer Vision Engineer</span>
+                                <i class="fas fa-arrow-right"></i>
+                                <span>Vision Systems Architect</span>
+                            </div>
+                            <h3>Salary Range</h3>
+                            <div class="salary-range">₹8-24 LPA</div>
+                            <h3>Industry Demand</h3>
+                            <div class="industry-demand">
+                                Growing demand in automotive, healthcare, and surveillance due to advancements in visual AI technologies.
+                            </div>
+                            <h3>Companies Providing These Jobs</h3>
+                            <div class="companies-list">
+                                <span>Tesla</span>
+                                <span>Intel</span>
+                                <span>Philips</span>
+                                <span>Qualcomm</span>
+                                <span>Adobe</span>
+                            </div>
+                            <h3>Work Environment</h3>
+                            <div class="work-environment">
+                                Office-based for algorithm development and testing, with lab work for prototyping and integration.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="job-role-item">
+                        <div class="job-role-title">
+                            NLP Engineer
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="job-role-details">
+                            <h3>Job Description</h3>
+                            <div class="job-description">
+                                NLP Engineers develop systems that enable machines to understand and generate human language, powering applications like chatbots and voice assistants. They use tools like NLTK, BERT, and Hugging Face to build and fine-tune language models. They collaborate with product teams to deploy NLP solutions.
+                            </div>
+                            <h3>Relevant Subjects</h3>
+                            <div class="subjects-list">
+                                <span>Natural Language Processing</span>
+                                <span>Deep Learning</span>
+                            </div>
+                            <h3>Required Skills</h3>
+                            <div class="skills-list">
+                                <span>NLTK</span>
+                                <span>BERT</span>
+                                <span>Hugging Face</span>
+                                <span>Text Processing</span>
+                            </div>
+                            <h3>Career Path</h3>
+                            <div class="career-path">
+                                <span>Junior NLP Engineer</span>
+                                <i class="fas fa-arrow-right"></i>
+                                <span>NLP Engineer</span>
+                                <i class="fas fa-arrow-right"></i>
+                                <span>Senior NLP Engineer</span>
+                                <i class="fas fa-arrow-right"></i>
+                                <span>NLP Architect</span>
+                            </div>
+                            <h3>Salary Range</h3>
+                            <div class="salary-range">₹8-25 LPA</div>
+                            <h3>Industry Demand</h3>
+                            <div class="industry-demand">
+                                High demand in tech, customer service, and healthcare due to the rise of conversational AI and language processing.
+                            </div>
+                            <h3>Companies Providing These Jobs</h3>
+                            <div class="companies-list">
+                                <span>Amazon</span>
+                                <span>Google</span>
+                                <span>Microsoft</span>
+                                <span>HCL Technologies</span>
+                                <span>ServiceNow</span>
+                            </div>
+                            <h3>Work Environment</h3>
+                            <div class="work-environment">
+                                Office-based for model development and testing, with collaboration with product teams for deployment.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta">
+        <div class="container">
+            <h2>Start Your Journey in Artificial Intelligence and Machine Learning</h2>
+            <p>Ready to innovate with intelligent systems and data-driven solutions? Contact our counselors to learn more about the BTech in Artificial Intelligence and Machine Learning.</p>
+            <a href="index.html#contact" class="btn">Contact Us</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h2>EduCareer</h2>
+                    <p>Your guide to educational success</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.html#courses">Courses</a></li>
+                        <li><a href="index.html#about">About Us</a></li>
+                        <li><a href="index.html#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-courses">
+                    <h3>Popular Courses</h3>
+                    <ul>
+                        <li><a href="btech.html">BTech</a></li>
+                        <li><a href="mtech.html">MTech</a></li>
+                        <li><a href="mba.html">MBA</a></li>
+                        <li><a href="medical.html">Medical</a></li>
+                    </ul>
+                </div>
+                <div class="footer-social">
+                    <h3>Follow Us</h3>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 EduCareer. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Job roles accordion functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const jobRoleItems = document.querySelectorAll('.job-role-item');
+            
+            jobRoleItems.forEach(item => {
+                const title = item.querySelector('.job-role-title');
+                
+                title.addEventListener('click', () => {
+                    // Close all other items
+                    jobRoleItems.forEach(otherItem => {
+                        if (otherItem !== item && otherItem.classList.contains('active')) {
+                            otherItem.classList.remove('active');
+                        }
+                    });
+                    
+                    // Toggle current item
+                    item.classList.toggle('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
